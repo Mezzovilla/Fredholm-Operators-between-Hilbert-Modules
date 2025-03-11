@@ -1,10 +1,12 @@
-# Fredholm Operators over $C^\star$-Hilbert Modules
+# Fredholm Operators over $C^*$-Hilbert Modules
 
 The content here presented was produced during the last academic year of my bachelor’s
 degree in Mathematics at the Institute of Mathematics and Statistics of the University
 of São Paulo (IME-USP).
 
-## Contextualization
+![cover](figures/capa-samya-v2.pdf)
+
+## Context
 The present document builds upon Ruy Exel’s paper “A Fredholm Operator approach
 to Morita Equivalence”, in a closer look to details. In it, the theory of generalized
 Fredholm operators between Hilbert $C^\star$-modules is developed, and a generalization of the
