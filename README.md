@@ -18,6 +18,6 @@ Here, I make sure to include all definitions and theorems necessary to understan
 
 You can generate the present report with the following command:
 ```
-```latex
+
 source ./compiler.bash
 ```
