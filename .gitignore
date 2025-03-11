@@ -1,1 +1,6 @@
-./cache/main.*
+./cache/main.aux
+./cache/main.bbl
+./cache/main.blg
+./cache/main.log
+./cache/main.out
+./cache/main.toc
