@@ -17,7 +17,7 @@ Here, I make sure to include all definitions and theorems necessary to understan
 ## Compiling
 
 You can generate the present report with the following command:
-```
 
+```bash
 source ./compiler.bash
 ```
