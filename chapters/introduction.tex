@@ -1,0 +1,66 @@
+\iftagged{BR}{
+	\chapter*{Introdução}
+	\section*{Contextualização}
+}{
+	\chapter*{Introduction}
+	\section*{Contextualization}
+}
+
+\iftagged{BR}{
+	\textsc{Ruy Exel} publicou em 1993 um artigo intitulado ``A Fredholm Operator approach to Morita Equivalence'' \cite{exel7fredholm}, no qual ele desenvolve a teoria de operadores Fredholm generalizados entre $C^*$-módulos de Hilbert, e demonstra uma versão do teorema de Brown, Green e Rieffel sobre equivalência Morita-Rieffel de $C^*$-algebras. Aqui, eu me certifico de incluir todas as definições e teoremas necessários para entender o maquinário desenvolvido por \textsc{Exel} nesse artigo. Além disso, eu incluirei todos os comentários que eu julguei relevantes durante a minha compreensão desses tópicos.
+}{
+	The present document builds upon \textsc{Ruy Exel}'s paper ``A Fredholm Operator approach to Morita Equivalence'' \cite{exel7fredholm}, in a closer look to details. In it, the theory of generalized Fredholm operators between Hilbert $C^*$-modules is developed, and a generalization of the Brown, Green and Rieffel theorem concerning induced $K$-groups on equivalent Morita-Rieffel $C^*$-algebras is demonstrated. Here, I make sure to include all definitions and theorems necessary to understand the machinery developed by \textsc{Exel} in that article. In addition, I will include all the comments that I deemed relevant during my understanding of these topics.
+}
+
+\iftagged{BR}{
+	O teorema original (doravante, BGR) não se refere a nenhuma relação $K$-teórica, mas a conexão entre uma versão de equivalência Morita para $C^*$-algebras separáveis $A$ e $B$ (afirmando a existência de um certo $(A,B)$-bimódulo) e o que eles chamam de relação \textit{estavelmente isomórfica} entre $A$ e $B$, i. e. se $\mathscr K$ é a algebra de operadores compactos em um espaço de Hilbert separável de dimensão infinita, então $A\otimes \mathscr K \simeq B\otimes \mathscr K$. O teorema citado acima pode ser expresso como:
+}{
+	The original theorem (henceforth, BGR) does not concern any $K$-theoretic relations, but the connection between a version of Morita equivalence for separable $C^*$-algebras $A$ and $B$ (claiming the existence of a certain $(A,B)$-bimodule) and what they call \textit{stably isomorphic} relation between $A$ and $B$, i.e. if $\mathscr K$ is the algebra of compact operators on a infinite dimensional separable Hilbert space, then $A\otimes \mathscr K \simeq B\otimes \mathscr K$. The theorem quoted above can be stated as:
+}
+\begin{quote}
+\iftagged{BR}{
+\textbf{Teorema} (BGR - \cite[Teorema 1.2]{brown1977stable}) Sejam $A$ e $B$ duas $C^*$-algebras. Se $A$ e $B$ são estavelmente isomórficas, então elas são fortemente Morita equivalentes. Reciprocamente, se $A$ e $B$ são fortemente Morita equivalentes e se elas possuem elementos estritamente positivos, então elas são estavelmente isomórficas.
+}{
+\textbf{Theorem} (BGR - \cite[Theorem 1.2]{brown1977stable}) 
+Let $A$ and $B$ be $C^*$-algebras. If $A$ and $B$ are ``stably isomorphic'', then they are strongly Morita equivalent. Conversely, if $A$ and $B$ are strongly Morita equivalent and if they both possess strictly positive elements, then they are stably isomorphic.
+}
+\end{quote}
+
+\iftagged{BR}{
+	No presente documento, nós seguimos a terminologia de \textsc{Exel} e renomeamos a relação ``fortemente Morita equivalentes'' para equivalência Morita-Rieffel.
+}{
+	From now on, we follow \textsc{Exel}'s terminology and we rename Rieffel's strong Morita equivalence to Morita-Rieffel equivalence.
+}
+
+\iftagged{BR}{
+	Uma consequência de BGR é que os $K$-grupos induzidos por $C^*$-algebras $\sigma$-unitais Morita-Rieffel equivalentes são os mesmos. Na versão original, a condição de separabilidade das algebras é crucial para esse resultado, dado que os autores mesmos encontraram casos nos quais o teorema não se mantém para algebras não-separáveis. No entanto, a mesma questão sobre os $K$-grupos induzidos permanece aberta quando se abstrai dessa condição de separabilidade. Além disso, a prova original garante que $A\otimes \mathscr K$ e $B \otimes \mathscr K$ são isomorfos, mas sem nenhuma pista sobre qual deve ser esse isomorfismo. Portanto, não existe nenhuma expressão explícita para o isomorfismo entre os $K$-grupos.
+}{
+	A corollary of BGR is that $\sigma$-unital Morita-Rieffel equivalent $C^*$-algebras induce the same $K$-groups. In the original concept, the separability condition of the algebras is crucial for this result, given that the authors themselves found cases in which the theorem does not hold for non-separable ones. However, the same question about the induced $K$-groups was open when one abstains from this separability requirement. Besides that, the original proof guarantees that $A\otimes \mathscr K$ and $B \otimes \mathscr K$ are isomorphic, but without any clue on what this isomorphism should be. Hence, there is not any explicit expression to the induced $K$-theoretic isomorphism.
+}
+
+\iftagged{BR}{
+	Em seu trabalho, \textsc{Exel} apresenta isomorfismos explícitos $K_0(A)\longto K_0(B)$ e $K_1(A)\longto K_1(B)$ para duas $C^*$-algebras $A$ e $B$ Morita-Rieffel equivalentes, driblando a hipótese de separabilidade. Ele alcança esse objetivo ao tratar os operadores Fredholm mencionados como na abordagem de \textsc{Mingo} \cite{mingo1987K} e obtendo o grupo abeliano $F(A)$ de classes de equivalência de (todos) os operadores Fredholm $A$-Fredholm com o mesmo índice.
+}{
+	In his work, \textsc{Exel} exhibited explicit isomorphisms $K_0(A)\longto K_0(B)$ and $K_1(A)\longto K_1(B)$ for two $C^*$-algebras $A$ and $B$ Morita-Rieffel equivalents, dribbling the separability hypothesis. He achieves this goal by treating the mentioned Fredholm operators as in \textsc{Mingo}'s approach \cite{mingo1987K} and obtaining the abelian group $F(A)$ of equivalence classes of (all) $A$-Fredholm operators with the same index. 
+}
+
+This is the work of an undergraduate student who wanted to facilitate further studies in those topics with a more unified reference containing all the necessary ingredients. We developed all the necessary theory of Hilbert $C^*$-Modules and $A$-Fredholm operators. I encourage any reader to treat this document as a journey through many faces of mathematics, and to obviously check the source, which is available in Exel's website. 
+
+\section*{Itinerary}
+\thispagestyle{empty}
+Here, we focus on detailing the construction of those Fredholm operators and the necessary predecessor steps. Therefore our road map can be described as follows:
+\begin{itroman}
+	\item \underline{\textit{$K$-theory for Banach Algebras}}: Since the main result is a $K$-theoretic one and the index of our $A$-Fredholm operators will be elements of $K_0$, Chapter \ref{ch:k theory} is devoted to contain a minimalist toolkit bag, which consists of the definitions of the abelian groups $K_0(A)$ and $K_1(A)$ for a Banach algebra $A$, and the index map induced in a short exact sequence. Some famous properties about the $K$-theory of operator algebras will be mentioned, but only as snacks at boring adult parties.
+	\item \underline{\textit{Hilbert and Finite-rank \ensuremath{C^*}-Modules}}: In order to define the so-called \textit{Fredholm operators} between Hilbert $C^*$-modules, naturally, one needs to understand what those modules are, where they live and what they feed on. The initial sections in Chapter \ref{ch:hilbert modules} tackle abstract versions of these questions in a mathematical sense. In particular, one needs to understand a new notion of compactness and the so-called  \textit{finite-rank} modules described in Section \ref{sec: finite rank operators}. Those will replace our notion of finite-dimensionality. 
+	
+	One of the greatest technical theorems used in \textsc{Exel}'s arguments is the Kasparov Stabilization Theorem \ref{teo: kasparov stabilization} presented in Section \ref{sec: kasparov stabilization}, being crucial to discarding the separability assumption in the target theorem and the definition of Fredholm operators, which will require the classification Theorem \ref{teo: M N quasi stably iso ==> rank igual} about the \textit{Quasi-Stably-Isomorphic Finite-Rank Hilbert $C^*$-modules}, to which the last Sections of Chapter \ref{ch:hilbert modules} are dedicated. The purpose of this Chapter is to be a more detailed Section 2 of \textsc{Exel}'s paper \cite{exel7fredholm}.
+	
+	\item \underline{\textit{Generalised Fredholm operators}}: As you may anticipate by the spoiling title, Chapter \ref{ch:fredholm operators} is the place where the big star of the show is treated. Since our Fredholm operators don't need to have closed range, typical arguments involving projections can't be used. This will lead us to define in Section \ref{sec: regular fredholm} a ``smaller'' class, called the \textit{regular} operators, whose index can be defined. Later, it'll be shown that every general Fredholm operator can be regularized. Finally, we finish the Chapter by constructing a Fredholm portrait of $K_0(A)$, giving birth to an abelian group $F(A)$ and a isomorphism $\ind : F(A) \longto K_0(A)$.
+	
+	\item \underline{\textit{A sketch of \textsc{Exel}'s application to Morita Equivalence}}: Up to this point, there is already too much to digest. Therefore, we discuss briefly what Morita-Rieffel equivalence is, and present only the skeleton of the arguments used by \textsc{Exel}, quoting without proving his main results.      
+\end{itroman}
+\thispagestyle{empty}
+All sections are filled with some examples and some historical context which I believe give a useful perspective. All $C^*$-algebras that appear in this text are complex, i.e. complex Banach algebras $A$ endowed with an \textit{involution}\footnote{An operation $a \longmapsto a^*$ which is conjugate-linear, anti-commutative and has order 2} $*$ which obeys the $C^*$-identity: $\|a^*a\|=\|a\|^2$ for all $a\in A$. If it is needed for some reader, I would recommend the absolute masterpiece produced by \textsc{N. Wegge-Olsen} \cite{wegge1993k}, which contains not only results about $C^*$-algebras, but also $K$-theory, Hilbert $C^*$-modules and even some comments about Mingo's generalized Fredholm operators and their index. 
+
+
+\thispagestyle{empty}

@@ -1,0 +1,103 @@
+\chapter{An Application to Morita-Rieffel Equivalence}
+
+Morita equivalence is a concept from ring theory, where two rinds are said to be Morita equivalent if their categories of modules are naturally equivalent. Although no corresponding theorems can be reused in the $C^*$-algebraic, \textsc{M. Rieffel} presents a notion of such an equivalence between $C^*$-algebras related to the existence of particular Hilbert $(A,B)$-bimodules, the so called Rieffel's imprimitivity bimodule \cite{rieffel1981c,RIEFFEL1974176, brown1977stable}. The treatment of Morita equivalence between $C^*$-algebras is often called strongly Morita, but we will reference to it as Morita-Rieffel equivalence in order to give credit where credit's due.
+
+\section[Preliminars on Hilbert \texorpdfstring{\ensuremath{C^*}}{C*}-bimodules]{Preliminars on Hilbert \texorpdfstring{\mathbf{C^*}}{C*}-bimodules}
+
+Let $A$ and $B$ be two $C^*$-algebras. A Hilbert $(A,B)$-bimodule $X$ is a space with two inner products:
+\begin{equation*}
+	(\come\mid\come):X\times X \longto A \e \inner{\come}{\come}:X\times X \longto B
+\end{equation*} 
+where $\left(X, (\come\mid\come)\right)$ is a \textit{left} Hilbert $A$-module and $\left(X, \inner\come\come\right)$ a \textit{right} Hilbert $B$-module, which satisfies the following transition relation:
+\begin{equation*}
+	(x\mid y)z = z \inner yz
+\end{equation*}
+In order to make sense, it is required that $(\come\mid\come)$ to be usual sesquilinear in a left Hilbert module: linear in the first entry, and involuted-linear in the second.
+
+\begin{definicao}
+	A Hilbert $(A,B)$-bimodule $X$ is said to be \textit{left-full} (resp. right-full) if $(X \mid X)$ coincides with $A$ (resp. if $\langle X, X\rangle$ coincides with $B$).
+\end{definicao}
+
+Let $X$ be a $(A,B)$-bimodule and let $E$ be a right Hilbert $A$-module. The algebraic tensor product module $E\,\sub\otimes A^{\text{alg}} X$ has a natural $B$-valued inner-product given by
+\begin{equation*}
+	\inner{\xi\otimes x}{\zeta \otimes y} \coloneqq \inner{x}{\inner{\xi}{\zeta}y}
+\end{equation*}
+for $\xi,\zeta\in E$ and $x,y\in X$. Since it may not be complete and contain norm zero elements, those conditions need to be forced, in order to see $E \sub\otimes A X$ as a Hilbert $B$-module.
+
+If $T\in \sub\adj{A}(E,F)$, there is an induced linear transformation in the tensor product:
+\begin{equation*}
+	\function{{T\otimes \sub\Id X}{E\,\sub\otimes A X}{F\,\sub\otimes A X}{\xi\otimes x}{T\xi\otimes x}}
+\end{equation*}
+It is the case that $T\otimes \sub\Id X \in \sub\adj{B}(E\,\sub\otimes A X, F\,\sub\otimes A X)$ and $\|T\otimes \sub\Id X\| \leqslant \|T\|$.
+
+A full treatment of Hilbert bimodules should consider the representations of bimodules, in order to tackle all necessities for dealing with abstract tensor products. Since we're only exposing \textsc{R. Exel}'s result, mind not our avoiding of such topic, my dear reader.
+
+\begin{definicao}[Morita-Rieffel]
+	Let $A$ and $B$ be $C^*$-algebras. A bimodule $X$ is said to be an \textit{$(A,B)$-imprimitivity bimodule} if $X$ is a left-full Hilbert $A$-module and a right-full Hilbert $B$-module. The algebras in context are said to be \textit{Morita-Rieffel} equivalent if there exist such an imprimitivity bimodule.
+\end{definicao}
+
+\begin{exemplos}$\left.\right.$
+	\begin{itroman}
+		\item Every $C^*$-algebra $A$ is an $(A,A)$-imprimitivity bimodule with $(a\mid b) = ab^*$ and $\inner{a}{b} = a^*b$. 
+
+		\item Isomorphic $C^*$-algebras are necessarily Morita-Rieffel equivalent. Indeed, if $\phi : A \longto B$ is an isomorphism, the operation $ax \coloneqq \phi(a) x$, as well as the inner-products $\inner{x}{y} \coloneqq x^*y$ and $(x\mid y)\coloneqq \inv\phi(xy^*)$ make $B$ an $(A,B)$-imprimitivity bimodule.
+
+		\item If $p \in \adj(A)$ is a projection, i.e. $p^2=p^* = p$, then $Ap$ is a $(pAp, \con{ApA})$-imprimitivity bimodule regarded with the inner-products: $\inner{ap}{bp} \coloneqq pa^*bp$ and $(ap\mid bp) \coloneqq apb^*$.
+
+		\item Let $H$ be a Hilbert space, which is a right Hilbert $\C$-module, with some inner product $\inner{\come}{\come}$. If $\mathscr K \coloneqq \mathscr K(H)$ is the usual $C^*$-algebra of compact operators, consider the $\mathscr K$-valued inner product 
+	\begin{equation*}
+		\function{{(\come\mid \come)}{H\times H}{\mathscr K}{(x,y)}{\left(z \overset{x\otimes \con y}\longmapsto \inner{z}{y}x \right)}}
+	\end{equation*}
+	One can check that $(x\otimes \con y)^* = y \otimes \con x$, $(x \otimes \con y)(z \otimes \con w) = \inner{z}{y}(x\otimes \con w)$ and the operator norm of $x\otimes \con x$ is $\|x\|^2$, which will lead to $\left(H, (\come\mid \come)\right)$ being a Hilbert $\mathscr K$-module.
+
+	Notice that $(H\mid H) = \con{\operatorname{Span} \{\inner{\come}{y}x\}} = \mathscr K$ since each $(x\mid y)$ is a finite-rank 1 operator. Since $\inner{H}{H} = \C$, one concludes that $H$ is a $(\mathscr K, \C)$-imprimitivity bimodule.
+
+	%\item More generally, every right Hilbert $B$-module $E$ is a $(\mathscr K(E),B)$-imprimitivity bimodule with $(x\mid y) \coloneqq x\inner{y}{\come}$.
+	\end{itroman}
+\end{exemplos}
+
+A full treatment about Morita-Rieffel equivalence, including the construction of the tensor product, the verification that it is, indeed, an equivalence relation and many otter properties, the reader may check \cite{raeburn1998morita}.
+
+
+\section[\texorpdfstring{\ensuremath{K}}{K}-theory and Hilbert \texorpdfstring{\ensuremath{C^*}}{C*}-bimodules]{\texorpdfstring{\mathbf{K}}{K}-theory and Hilbert \texorpdfstring{\mathbf{C^*}}{C*}-bimodules}
+
+Throughout this section, suppose that $A$ and $B$ are two $C^*$-algebras Morita-Rieffel equivalent, and let $X$ denote the $(A,B)$-imprimitivity bimodule associated with.
+
+\begin{invocacao}[\cite{exel7fredholm}, Corollary 4.3]
+	\label{invocacao:exel 4.3}
+	If $T\in \sub\adj{A}(E,F)$ is an $A$-Fredholm operator, the induced operator $(T\otimes \sub\Id{X})\in \sub\adj{B}(E\sub\otimes{A} X, F\sub\otimes A X)$ is $B$-Fredholm.
+\end{invocacao}
+
+\begin{definicao}
+	Let $X$ be a left-full Hilbert $(A,B)$-bimodule. For $\alpha\in K_0(A)$, choose $T$ to be a Fredholm operator in which $\ind(T)=\alpha$ using the isomorphism given by the corollary \ref{corol:atiyah-janich}. This induces a morphism $X_*$ which commutes the following diagram:
+	\begin{equation*}
+		\begin{tikzcd}
+		F(A) \arrow[d, "\ind"'] \arrow[rr, "\,\cdot\, \otimes \sub\Id X"] &  & F(B) \arrow[d, "\ind"] \\
+		K_0(A) \arrow[rr, "X_*"', dashed]                            &  & K_0(B)                
+		\end{tikzcd}
+	\end{equation*}
+	%\begin{equation*}
+	%	\function{{X_*}{K_0(A)}{K_0(B)}{\alpha}{\ind(T \otimes \sub\Id{X})}}
+	%\end{equation*}
+\end{definicao}
+
+This application is well defined since 
+\begin{equation*}
+	\ind(T_1)=\ind(T_2) \To \ind(T_1\otimes \sub\Id{X}) = \ind(T_2\otimes \sub\Id{X})
+\end{equation*}
+as stated in \cite{exel7fredholm}, Proposition 4.4. Since tensor products are associative, one concludes that $Y_* \circ X_* = (X \sub\otimes B Y)_*$. 
+
+Consider $X^*$ to be the conjugated module by $*$, which is $(B,A)$-imprimitivity bimodule. Considering the composition law and the summoning \ref{invo:exel 4.13}, we can consider the inverse of $X_*$ given by $(X^*)_*: K_0(B) \longto K_0(A)$. 
+
+\begin{invocacao}[\cite{exel7fredholm}, Proposition 4.13]
+	\label{invo:exel 4.13}
+	For any left-full Hilbert $(A,B)$-bimodule $X$, the tensor product $X\sub\otimes B X^*$ is a Hilbert $(A,A)$-bimodule isomorphic to $(A\mid A)$.
+\end{invocacao}
+
+
+Therefore, $X_*$ is an isomorphism. If $SA \coloneqq C_0(\R) \otimes A$ denotes the suspension $C^*$-algebra of $A$, one can induce a suspension of $X$, given by $SX \coloneqq C_0(\R)\otimes X$. Since $K_1(A) \simeq K_0(SA)$ and $SA$ and $SB$ are Morita-Rieffel equivalent, one can induce an isomorphism $(SX)_* : K_1(A) \longto K_1(B)$. Summarizing, its obtained the Brown-Green-Rieffel theorem without considering the separability of the $C^*$-algebras:
+
+\begin{teorema}[Exel]
+	\label{teo: BGR-Exel}
+	For $A$ and $B$ Morita-Rieffel equivalent $C^*$-algebras, the $(A,B)$-imprimitivity bimodule $X$ induces two isomorphisms: $X_* : K_0(A) \longto K_0(B)$ and $(SX)_* : K_1(A)\longto K_1(B)$.
+\end{teorema}

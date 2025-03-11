@@ -1,0 +1,677 @@
+\chapter{Fredholm Operators}
+\label{ch:fredholm operators}
+
+In regular Fredholm theory, one would define Fredholm operators as those with both kernel and cokernel were finite dimensional. Here, our concepts involving ``finiteness'' depends on a fixed $C^*$-algebra $A$, so, talking about dimension is kinda tricky. But classical Atikinson's theorem characterizes Fredholm operators in terms only of compactness, which we fully characterize in Theorem \ref{teo: M N quasi stably iso ==> rank igual}. That points towards a generalization. 
+
+\begin{definicao}[$A$-Fredholm]
+\label{def:Fredholm operators}
+A given $T\in \adj(E,F)$ is said to be $A$-Fredholm if it is invertible modulo $\operatorname{FR}(E,F)$, i.e. exists $S \in \adj(F,E)$ such that both $\sub\Id E - ST$ and $\sub\Id F - TS$ are $A$-finite rank operators.
+\end{definicao}
+
+If adjointable operators $S$, $S'$ and $T$ are such that both $TS$ and $S'T$ are Fredholm, one can obtain operators $R$ and $R'$ such that $\Id - T(SR)$ and $\Id - (R'S')T$ are finite-rank ones. Hence $T$ is Fredholm. 
+
+\begin{proposicao}\label{prop: I-ST compacto ===>  T fredholm}
+If $T$ is invertible modulo $\mathscr K(E,F)$, then it is $A$-Fredholm. Hence, definition \ref{def:Fredholm operators} really fits the sentence ``Atikinson's trivialization''.
+
+\begin{proof}
+Let us digress a little bit:
+\vspace{-0.7cm}
+\begin{quote}
+    \begin{observacao}
+    Let $J \triangleleft A$ be a non-closed ideal of a unital $C^*$-algebra, and suppose that $a\in A$ is invertible modulo $\con J$ (the topological closure), i.e. there exists $b \in A$ such that $(1-ab)\in \con J$. Therefore, there exists a sequence $(j_n)_n \subset J$ such that $j_n \to (1-ab)$, which means that at least one of then, say $j$, obeys $\|1-ab - j\| < 1$. Since $ab+j = 1 - (1-ab-j)$, $ab+j$ is invertible\footnote{Notice that $(\lambda - a) \in \GL(A)$ whenever $\|a\|<|\lambda|$.}. Therefore, some algebraic manipulation shows that
+    \begin{equation*}
+        a\underbrace{b(ab+j)^{-1}}_{\sub x1}- 1 = -j(ab+j)^{-1} \in J
+    \end{equation*}
+    i.e. $a$ is right invertible modulo $J$. But since $b$ also ensure that $(1-ba) \in \con J$, hence it exist $\sub x2$ such that $(\sub x2a-1) \in J$. Notice that
+    \begin{equation*}
+        \sub x2(a\sub x1 - 1) = \big((\sub x2a)\sub x1 - \sub x2\big) = (\sub x1 - \sub x2) \in J,
+    \end{equation*}
+    i.e. $[\sub x1] = [\sub x2]$ in the quotient algebra $A/J$. Therefore, there is a representative of the class of $\sub x1$ and $\sub x2$, say $x$, such that both $1-ax$ and $1-xa$ belong to $J$, i.e. $a$ is invertible modulo $J$.
+    \end{observacao}
+\end{quote}
+With this digression in mind, notice that if $(\sub\Id E - TS) \in \mathscr K(E,F)$, there exist an element $R$ such that both $\sub\Id E - TR$ and $\sub\Id F-RT$ are finite-rank operators, i.e. $T$ is Fredholm.
+\end{proof}
+\end{proposicao}
+
+
+\begin{observacao}
+Let $H$ and $W$ be complex Hilbert spaces. The set of classical Fredholm operators coincide with the $\C$-Fredholm ones. 
+\end{observacao}
+
+\begin{exemplo}[\cite{239982}]
+\label{exemplo: familia continua de operadores}
+Let $X \in \CHaus$ and $\mathscr F(\ell^2(\N))$ the set of $\C$-Fredholm classical operators over the separable Hilbert space $\ell^2(\N)$. We avoid writing $\ell^2(\mathbb N)$ everywhere, so $\mathscr B$, $\mathscr K$ and $\mathscr F$ will respectively denote the bounded, compact and Fredholm operators over $\ell^2(\N)$.
+
+For any continuous family of operators\footnote{For example, $T: [0,1] \longto \mathscr F$, $T_x(\xi) \coloneqq (x\xi_n)_n$.} $T: X \longto \mathscr B$, it is possible to see $T$ as a $C(X)$-endomorphism over the standard Hilbert $C(X)$-module $\sub{\mathscr H}{C(X)}$:
+\begin{equation*}
+    \function{{\widehat T}{\sub{\mathscr H}{C(X)}}{\sub{\mathscr H}{C(X)}}{\xi}{(x\mapsto T_x\xi(x))}}
+\end{equation*}
+Each $T_x\coloneqq T(x)$ is a classical operator in a Hilbert space, so $T^* \in C(X,\mathscr B)$. Hence $\widehat T$ is adjointable. In order to show that continuous families of Fredholm operators extent to $C(X)$-Fredholm ones, we need the following claim:
+\begin{itroman}
+    \item \label{claim: hat T is C(X)-compact for T in C(X,K)} \textbf{\mathbf{\widehat T} is \mathbf{C(X)}-compact whenever \mathbf{\Im T \subset \mathscr K}}:
+    Let $\ep>0$ and $T \in C(X, \mathscr K)$. For each $x \in X$, pick a finite rank operator $R_x$ so that $\| R_x-T_x\| \leq \ep /3$, and pick a neighborhood $U_x$ such that $\| T_x-T_y\| \leq \ep/3$ for $y \in U_x$. Since $X$ is compact, extract a finite subcover $\sub U1 , \ldots, U_n$ of $(U_x)_{x \in X}$, and a partition of unity $\sub\lambda1, \ldots, \lambda_n$. Then 
+$$\| T_x- \sum_{i=1}^n \lambda_j (x) R_{x_j} \|  \leq \ep.$$
+Therefore, is a finite rank the operator $\sum_{i} \lambda_i (\come) R_{x_i}$ and, $\widehat T$ is compact.
+\end{itroman}
+
+
+Suppose that the range of $T$ is constituted only by Fredholm operators, which we will denote by $\mathscr F$. In order to see the extension of $T$ to the standard Hilbert $C(X)$-module, $\widehat T \in \adj(\sub{\mathscr H}{C(X)})$ is a $C(X)$-Fredholm operator, we must conjure the following:
+\begin{quote}
+    \begin{invocacao}[Classical Bartle-Graves theorem - Corollary 17.67 \cite{aliprantisinfinite}]
+    \label{teo: bartle graves}
+    Every surjective continuous linear operator between Banach spaces\footnote{More generally, completely metrizable locally convex spaces, i.e. Fréchet spaces.} admits continuous right inverse, but not necessarily a linear one.
+    \end{invocacao}
+\end{quote}
+Bartle-Graves theorem has significant improvements and different versions (e.g., \cite{dontchev2020bartle}), but for our needs, we are fine with the above. 
+
+Consider the Calkin algebra given by the quotient of compact operators: $\mathscr Q \coloneqq {\mathscr B}/{\mathscr K}$
+and $\pi$ be the quotient map. Bartle-Graves theorem offers a continuous section $\sigma : \mathscr Q \longto \mathscr B$ such that $\pi \sigma A = A$. Let $S$ be given by the composition: 
+\begin{equation*}
+\begin{tikzcd}
+X \arrow[d, "T"'] \arrow[rrr, dashed, "S"]      &   &  & \mathscr F \\
+\mathscr F \arrow[r, "\pi"', two heads] & \operatorname{GL}\mathscr Q \arrow[rr, "(\come)^{-1}"'] &  & \operatorname{GL}\mathscr Q \arrow[u, "\sigma"']
+\end{tikzcd}
+\end{equation*}
+Since $T_x\in \mathscr F$ if and only if $\pi(T_x)$ is invertible in $\mathscr Q$ (by Atikinson's theorem), $S$ is well defined and continuous (each arrow above is), hence defines a endomorphism $\widehat S$ in $\sub{\mathscr H}{C(X)}$. We are left to show that both $\Id - \widehat S\widehat T$ and $\Id - \widehat T\widehat S$ are $C(X)$-compact operators in $\sub{\mathscr H}{C(X)}$.
+
+Since $\sub1{C(X)} - T\cdot S$ and $\sub1{C(X)}-S\cdot T$ are continuous families with compact range, $\widehat T$ is indeed $C(X)$-Fredholm by \ref{claim: hat T is C(X)-compact for T in C(X,K)}.
+\end{exemplo}
+
+In the classical Fredhom theory between Hilbert spaces, one only requires that $\ker T$ and $\coker T$ are finite dimensional. Those assumptions are sufficient to guarantee that every classical Fredholm operator has closed range, hence orthogonal decompositions are abundant in the proofs. Unfortunately, our definition allow non topologically closed ranges.
+
+%Only if we could extend it so naturally, maybe we wouldn't be here with a slightly different definition.
+
+\begin{exemplo}[Non closed range $A$-Fredholm operator]
+$C[0,1]$ is a unital $C^*$-algebra, that we shall consider as a Hilbert $C^*$-module. Choose $T$ to be
+\begin{equation*}
+    \function{T{C[0,1]}{C[0,1]}{f}{(x \mapsto xf(x))}}
+\end{equation*}
+Since the algebra is unital, any adjointable operator is $C[0,1]$-compact: $\mathscr L(C[0,1]) \simeq \mathscr K(C[0,1])$ (for instance, see Example \ref{exemplos: K( . )}\ref{exemplo item: K(A)=L(A) pra A unital}), hence must be $C[0,1]$-Fredholm as well. Unfortunately, the square root $\sqrt{\come}$ doesn't belong to the range of $T$, but it can be approximated by the Bernstein polynomials $B_n(x) \coloneqq \sum_{k\leqslant n} \binom nk \sqrt{k/n} \,x^k(1-x)^{n-k}$. 
+\end{exemplo}
+
+Therefore, in order to develop the theory of Fredholm operator between Hilbert modules and, in some extent, try to obtain a correspondence with the classical theory, we shall dodge the closure condition. Hence, we will focus on a smaller class of operators: those which admit pseudo-inverse, henceforth, the \textit{regular} ones. Later, we shall extent our results to general Fredholm operators, showing that each and everyone is, in some extent, regularizable.
+
+\section{Regular Fredholm operators}
+\label{sec: regular fredholm}
+\begin{definicao}[Regular operators]
+It is said to be \textit{regular} any operator $T\in \adj(E,F)$ that admits a \textit{pseudo-inverse}, i.e. there exists $S\in \adj(F,E)$ such that $TST=T$ and $STS=S$. 
+\end{definicao}
+
+\begin{exemplo}
+    The operators $F$ and $G$ constructed in the proof of Theorem \ref{teo: M N quasi stably iso ==> rank igual} are regular Fredholm operators which are pseudo-inverses of each other: $FGF=F$ and $GFG=G$.
+\end{exemplo}
+
+For a regular Fredholm operator $T$, such a pseudo-inverse $S$ fits the Fredholm criteria of $T$: If $S'$ is such that $\sub\Id E - S'T$ and $\sub\Id F - TS'$ are finite-rank operators,
+\begin{equation*}
+    \begin{array}{rcl}
+        (\sub \Id E - S'T)(\sub \Id E - ST) &=&  (\sub\Id E - S'T) - (\sub \Id E - S'T)ST \\
+        &=& \sub \Id E - S'T- ST + \underbrace{S'TST}_{S'T}  = \sub \Id E - ST
+    \end{array}
+\end{equation*}
+Since $\operatorname{FR}(E,F)$ is an ideal, the above manipulation shows that $\sub\Id E - ST$ is indeed a finite-rank operator (and similarly for $\sub\Id F - TS$).
+
+\begin{observacao}
+\label{exemplo: todo operador em esp hilb tem imagem fechada sse tem pseudo-inversa}
+When $S$ is such that $TS$ and $ST$ are idempotents, it is called a \textit{Moore-Penrose} inverse. To motivate the study of regular Fredholm operators as some way to deal with a weaker version of "the range is closed", we exhibit the following theorem:
+\begin{quote}
+    \textbf{Theorem}. For a Hilbert space $H$, a bounded operator $T\in \mathscr B(H)$ admits a Moore-Penrose pseudo-inverse $S$ if, and only if, $\Im T$ is closed.
+\end{quote}
+One way is pretty simple to prove: If there exists a Moore-Penrose pseudo-inverse $S$, $\Im T = \Im TS$. Since $TS$ is a orthogonal projection by hypothesis, $\Im T$ is closed. 
+
+Conversely, consider the following decompositions 
+$$
+H = \ker T \oplus \Im T^* = \ker T^* \oplus \Im T.
+$$
+Therefore, $T\sub\restrita{\Im T^*}$ is an injective bounded operator, with a bounded inverse $S$. Similarly, $T^*\sub\restrita{\Im T}$ admits a bounded inverse $R$. Those inverses can be extended to all the space, by setting it to zero outside their original domains (which is fine, since the kernels are all there is left in each case). One can verify that $R=S^*$ and that $S$ induces a Moore-Penrose inverse.
+\end{observacao}
+
+
+\begin{proposicao}\label{prop: T fredholm --> ker T e ker T* rank finito}
+Let $T \in \adj(E, F)$ be a $A$-Fredholm operator. If $T$ admits a pseudo-inverse $S$, then: 
+\begin{itroman}
+\item $\sub \Id E - ST$ and $TS$ are idempotents with ranges $\ker T$ and $\Im T$. 
+\item $\ker T$ and $\ker T^*$ are finite rank modules.
+\end{itroman}
+\begin{proof}
+Notice that $(ST)^2 = S(TST) = ST$ and similarly for $TS$, i.e. they are idempotents. It is easy to see that $\sub\Id E-ST$ also has the idempotent badge, $\Im(\sub \Id E - ST) = \ker T$ and $\Im TS = \Im T$.
+
+Is easy to see that $\sub \Id{\ker T} = (\sub \Id E - ST)\sub\restrita{\ker T}$. When supposing that $T$ is $A$-Fredholm, let $x,y \in E^n$ be such that $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$. Idempotent operators share their range with some projection by the remark \ref{obs: idempotente gerando inversivel}. Since $\sub\Id E - ST$ is an idempotent, there exists a self-adjoint idempotent operator $P$ such that $\Im(\sub\Id E - ST) = \Im P = \ker T$. Therefore, with $a= \Omega_{y}^{\,}\Omega_x^*$ and $p = P$, \ref{obs: idempotente gerando inversivel}.\ref{item: p eh uma projecao} guarantee that
+\begin{equation*}
+    \Omega_{y}^{\,}\Omega_x^* \sub{\restrita}{\ker T} = P\Omega_{y}^{\,}\Omega_x^*P \overset{P^*=P}= \Omega_{Py}^{\,} \Omega_{Px}^*.
+\end{equation*}
+Since $Py, Px \in (\ker T)^n$, it follows that $\sub\Id{\ker T} = \Omega_{Py}^{\,} \Omega_{Px}^*$ is a finite-rank operator over $\ker T$, i.e. $\ker T$ is a finite-rank module. Very much the same is sufficient to obtain that $\ker T^*$ also is a finite-rank module.
+\end{proof}
+\end{proposicao}
+%https://pages.uoregon.edu/alonsod/Talks/Fredholm%20Operators.pdf
+
+The rank of a finite rank module is well defined as seen before. Hence, the above proposition enable us to define the Index of regular Fredholm operators.
+
+\begin{definicao}
+If $T$ is a regular $A$-Fredholm operator, set their \textit{index} to be the $K_0(A)$ element given by
+\[
+\ind T \coloneqq \rank(\ker T) - \rank(\ker T^*).
+\]
+\end{definicao}
+
+\begin{proposicao}
+\label{prop: propriedades de fredholm}
+If $T\in \adj(E,F)$ is a regular Fredholm operator, then:
+\begin{itroman}
+\item $\ind T^* = -\ind T$.
+\item \label{prop item: propriedades de fredholm} For any pseudo-inverse $S$, $\rank(\ker T^*) = \rank(\ker S)$ and $\ind S = - \ind T$.
+\item \label{prop item: invertivel tem ind = 0} If there are invertible operators $U$ and $V$ between Hilbert modules such that the following diagram commutes, then $VTU$ is Fredholm and $\ind(VTU) = \ind T$.
+\begin{equation*}
+\begin{tikzcd}
+X \arrow[r, "U"', "\simeq"] \arrow[rrr, "VTU", bend left] & E \arrow[r, "T"'] & F \arrow[r, "V"', "\simeq"] & Y
+\end{tikzcd}
+\end{equation*}
+\item \label{prop item: ind(T (+) F) = ind T + ind F} If $T_i\in \adj(E_i,F_i)$ is a regular Fredholm operator for $i\in \{1,2\}$, the direct sum $T_1\oplus T_2$ is also regular Fredholm and $\ind(T_1\oplus T_2) = \ind T_1  + \ind T_2$.
+\end{itroman}
+\begin{proof}$\left.\right.$
+\begin{itroman}
+\item Clear.
+\item Since $S$ and $T^*$ are Fredholm operators, $\ker T^*$ and $\ker S$ are finite rank modules (\ref{prop: T fredholm --> ker T e ker T* rank finito}). In what comes next, keep in mind that $(\Im T)^{\perp} = \ker T^*$. Visiting again the remark \ref{obs: idempotente gerando inversivel}, one can conclude that for any idempotent $Q : F \longto E$, $F = \Im Q \oplus (\Im Q)^{\perp}$. Since $TS$ is an idempotent, we obtain the following diagram of equality:
+\begin{equation*}
+\begin{tikzcd}
+\Im(\sub\Id F-TS)\oplus \Im TS \arrow[d, equal] & F \arrow[l, equal] \arrow[r, equal, "\ref{obs: idempotente gerando inversivel}"] & (\Im TS)^{\perp} \oplus\Im TS \arrow[d, "(\Im TS)^{\perp} = (\Im T)^{\perp} = \ker T^*", equal] \\
+\ker S \oplus \Im TS    &  & \ker T^* \oplus \Im TS                                                            
+\end{tikzcd}
+\end{equation*}
+Therefore, $\ker S$ and $\ker T^*$ are quasi-stably-isomorphic. Therefore, \ref{teo: M N quasi stably iso ==> rank igual} guarantee that $\rank(\ker S) = \rank(\ker T^*)$. Consequentially, $\ind S = -\ind T$.
+
+\item Notice that $\ker VT = \ker T$ since $V$ is invertible, hence $\rank(\ker VT) = \rank(\ker T)$. Analysing $U\sub\restrita{\ker TU}$, one obtains that $\ker TU \simeq \ker T$, thus $\rank(\ker TU) = \rank(\ker T)$. The exact same roll goes for the adjoints. Therefore, the indexes coincide.
+\item  It is the case that $\Omega_{\xi_1 \oplus \xi_2} = \Omega_{\xi_1} \oplus \Omega_{\xi_2}$ for any $\xi_1\oplus \xi_2 \in E_1\oplus E_2$, which is sufficient to infer that $T_1\oplus T_2$ is a Fredholm operator.
+
+Since $\ker(T_1 \oplus T_2) = \ker T_1 \oplus \ker T_2$, $\ker(T_1 \oplus T_2)$ is a finite rank module. If $\rank T_i = [p_i]_0$, it is clear that 
+$$
+\begin{array}{rcl}
+    \rank(\ker(T_1\oplus T_2)) &=& \left[\diag(\sub p1, \sub p2)\right]_0 \\
+    &=& \left[\sub p1\right]_0+ \left[\sub p2\right]_0 \\
+    &=& \rank(\ker T_1) + \rank(\ker T_2).
+\end{array}
+$$
+Therefore, the desired index relation follows.
+\qedhere
+\end{itroman}
+\end{proof}
+\end{proposicao}
+
+Since our compact operators aren't necessarily the same as in Hilbert space case, the index invariance under compact perturbations needs to be handed carefully. 
+
+\begin{proposicao}
+\label{prop: ind(I - K) = 0}
+If $T\in \adj(E)$ is a regular Fredholm operator such that $(\Id - T)\in \mathscr K(E)$, then $\ind T = 0$.
+\begin{proof}
+Let $S$ be a pseudo-inverse of $T$. Since $\Id - T$ is a compact operator and the compact operators is an ideal, notice that $S$ is a compact perturbation of the identity:
+\[
+S = \Id + S(\Id - T) - (\Id - ST)
+\]
+Considering the isomorphism map $U : \ker T\oplus \Im S \longto \ker S \oplus \Im S$ given by
+\begin{equation*}
+    U \coloneqq \begin{pmatrix} \Id - TS  & \Id - TS \\ S  & S \end{pmatrix} \hspace{1cm} \inv U = \begin{pmatrix} \Id - ST & (\Id - ST)T \\ ST & STT \end{pmatrix}
+\end{equation*}
+with the fact that $\Id - S = \sub\Id{\Im S} - \sub{U}{\Im S\Im S}$ is compact, the modules $\ker T$ and $\ker S$ are quasi-stably-isomorphic. By \ref{teo: M N quasi stably iso ==> rank igual}, $\rank(\ker T) = \rank(\ker S)$, hence
+\begin{equation*}
+    \begin{array}{rcl}
+        \ind T &=& \rank(\ker T) - \rank(\ker T^*) \\
+        &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: propriedades de fredholm}}=& \rank(\ker T) - \rank(\ker S) = 0. \qedhere
+    \end{array}
+\end{equation*}
+\end{proof}
+\end{proposicao}
+
+\begin{teorema}
+\label{teo: diferenca compacta, indices simetricos}
+If $T_1, T_2 \in \adj(E, F)$ are regular Fredholm operators such that $T_1-T_2$ is compact, then $\ind T_1=\ind T_2$.
+\begin{proof}
+The action plan for the proof will be as follows: Build accessory operators $U$ and $R$ in function of the given maps, such that $U$ is invertible and $\ind R = \ind T_2 - \ind T_1$. Hence, we show that $\ind (UR)$ is a compact perturbation of the identity, so we can use the previous theorem and obtain that $\ind R=\ind(UR)=0$.
+
+Let $\sub S1$ and $\sub S2$ be pseudo inverses for $T_1$ and $T_2$. Define operators $U$ and $R$ in $\adj(E \oplus F)$ by
+\begin{equation*}
+    U\coloneqq \begin{pmatrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{pmatrix} \e R\coloneqq \begin{pmatrix}
+0 & \sub S1 \\
+T_2 & 0
+\end{pmatrix}.
+\end{equation*}
+\begin{itroman}
+\item $\boldsymbol{\ind R = \ind T_2 - \ind T_1}$: Using the coordinate switch operator (which has index zero since it is a invertible one), one obtains that:  
+\begin{equation*}
+\begin{tikzcd}[column sep=0.15cm]
+E\oplus F \arrow[rr, "R"] \arrow[rd, "{(x,y) \mapsto (y,x)}"'] &           & E \oplus F \\
+& F \oplus E \arrow[ru, "\sub S1 \oplus T_2"'] &
+\end{tikzcd}
+\hspace{1cm} 
+\begin{array}{rcl}
+    \ind R &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: invertivel tem ind = 0}}=& \ind(\sub S1 \oplus T_2) \\
+    &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: ind(T (+) F) = ind T + ind F}}=& \ind \sub S1 + \ind T_2 \\
+    &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: propriedades de fredholm}}=& - \ind T_1+ \ind T_2.
+\end{array}
+\end{equation*}
+
+\item \textbf{$\boldsymbol U$ is invertible}: Since $\sub \Id E-\sub S1 T_1$ and $\sub \Id F-T_1 \sub S1$ are idempotents, 
+\begin{eqnarray*}
+    U^2&=&\begin{inlinematrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{inlinematrix}^2 \\
+&=& \begin{inlinematrix}
+(\sub \Id E-\sub S1 T_1)^2+ \sub S1T_1 & (\sub \Id E - \sub S1T_1)\sub S1+\sub S1(\sub \Id F-T_1\sub S1) \\
+T_1(\sub \Id E-\sub S1T_1)+(\sub \Id F-T_1\sub S1)T_1 & T_1\sub S1+ (\sub\Id F-T_1 \sub S1)^2
+\end{inlinematrix}\\
+&=& \begin{inlinematrix}
+\sub \Id E & 0 \\
+0 & \sub\Id F
+\end{inlinematrix} = \sub \Id{E\oplus F}.
+\end{eqnarray*}
+Therefore $U$ is invertible.
+
+\item \textbf{$\boldsymbol{UR}$ is a compact perturbation of identity}: First, we obtain $UR$:
+\begin{equation*}
+    U R=\begin{inlinematrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{inlinematrix}\begin{inlinematrix}
+0 & \sub S1 \\
+T_2 & 0
+\end{inlinematrix}=\begin{inlinematrix}
+\sub S1 T_2 & 0 \\
+(\sub \Id F-T_1 \sub S1)T_2 & T_1 \sub S1
+\end{inlinematrix}
+\end{equation*}
+Bravely evaluating the difference, we must determine if is compact the following operator:
+\begin{equation*}
+    \sub \Id{E\oplus F} - UR = \begin{inlinematrix}
+\sub\Id{E}-\sub S1 T_2 & 0 \\
+(T_1 \sub S1-\sub\Id F)T_2 & \sub{\Id}F-T_1 \sub S1
+\end{inlinematrix}
+\end{equation*}
+Notice that all operators in the second row are compact since $T_1$ is Fredholm. From the hypothesis, $T_1 -T_2$ is compact, hence:
+\begin{equation*}
+    \begin{array}{rcl}
+        \sub \Id E - \sub S1T_2 &=& \sub \Id E - \sub S1T_1 + \sub S1T_1- \sub S1T_2  \\
+        &=& (\sub \Id E - \sub S1T_1) + \sub S1(T_1-T_2) \in \mathscr K(E).
+    \end{array}
+\end{equation*}
+Since each entry of $\sub \Id{E\oplus F} - UR$ is a compact operator, the claim is proved.
+\end{itroman}
+Using \ref{prop: propriedades de fredholm}\ref{prop item: invertivel tem ind = 0} again, we have that $\ind(U R)=\ind R$. Since $UR$ is a compact perturbation of the identity, it follows that $\ind(U R)=0$ by Proposition \ref{prop: ind(I - K) = 0}.
+\end{proof}
+\end{teorema}
+
+\section{Regularization of Fredholm operators}
+
+Time to extend our concepts to general Fredholm operators. A change in algebras will be necessary, so we write our next lemma with new a $C^*$-algebra notation.
+
+\begin{lema}
+\label{lema: construcao regularizacao}
+Let $B$ be a unital $C^*$-algebra and $T \in \sub\adj B(E,F)$ a $B$-Fredholm but not necessarily regular. There exists a natural $n$ and some $x\in E^n$ such that  \begin{equation*}
+    \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix}: E\oplus B^n \longto F\oplus B^n
+\end{equation*}
+is a regular $B$-Fredholm operator.
+\begin{proof}
+Let $S$ be a pseudo-inverse of $T$ such that both $\sub \Id E - ST$ and $\sub \Id F - TS$ are finite rank operators, and $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$ for some $y \in F^n$, $x \in E^n$. We will construct operators $\widetilde{T}$ and $\widetilde{S}$ that are regular Fredholm. Define the following operators:
+%<*RegularizacaoDeTeS>
+\begin{equation*}
+    \widetilde T \coloneqq \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix} \e
+    \widetilde S \coloneqq \begin{pmatrix} S & \Omega_y^{\,} \\ 0 & 0\end{pmatrix}.
+\end{equation*}
+%</RegularizacaoDeTeS>
+\begin{itroman}
+\item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are pseudo-inverses of each other, hence regular}: In what follows, we need the expressions: 
+\begin{alter}
+\item \label{lema: construcao regularizacao item 1}$T\Omega_y^{\,}\Omega_x^* = T(\sub \Id E - ST) = T - TST = 0$.
+\item \label{lema: construcao regularizacao item 2} $\Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) = \Omega_x^* (ST+\sub \Id E - ST) = \Omega_x^*$.
+\end{alter}
+Notice that
+\begin{equation*}
+    \begin{array}{rcl}
+        \widetilde T\widetilde S\widetilde T &=&  \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \begin{inlinematrix} S & \Omega_y^{\,} \\ 0 & 0\end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
+        &=& \vphantom{\displaystyle\int\limits_{\int}^\int} \begin{inlinematrix} TS & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y^{\,} \end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
+        &=& \begin{inlinematrix} 
+        TST + T\Omega_y^{\,}\Omega_x^* & 0\\ 
+        \Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) & 0 
+        \end{inlinematrix}  \overset{\ref{lema: construcao regularizacao item 1}+\ref{lema: construcao regularizacao item 2}}= \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} = \widetilde T
+    \end{array}
+\end{equation*}
+
+Similarly, one can obtain that $\widetilde{S}\widetilde T\widetilde S = \widetilde S$, hence
+$\widetilde T$ and $\widetilde S$ are regular due to the fact that they are each others pseudo-inverses.
+
+\item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are Fredholm operators}: Notice that:
+\begin{equation}
+\label{eq: I_E(+)B^n - tilde(S)tilde(T)}
+    \begin{array}{c}
+        \sub \Id{E\oplus B^n} - \widetilde S\widetilde T = \begin{inlinematrix} 
+            \sub \Id E & 0 \\ 0 & \sub\Id{B^n} 
+        \end{inlinematrix} - 
+            \begin{inlinematrix} ST + \Omega_y^{\,}\Omega_x^* & 0 \\ 0 & 0\end{inlinematrix} = \begin{inlinematrix}
+    0 & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix}\\
+    \vspace{0.25cm} \\
+    \sub \Id{F\oplus B^n} - \widetilde T\widetilde S =  \begin{inlinematrix} \sub \Id F & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix} - \begin{inlinematrix} TS  & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y
+    \end{inlinematrix} 
+    =
+    \begin{inlinematrix}
+    \sub \Id F - TS & - T\Omega_y^{\,} \\ - \Omega_x^*S & \sub\Id{B^n}- \Omega_x^*\Omega_y^{\,}
+    \end{inlinematrix}
+    \end{array}
+\end{equation}
+Lets check that every entry in those matrices are compact:
+\begin{alter}
+\item \textbf{\mathbf{\sub\Id{E}} is finite rank}: Since $B$ is unital, $\sub \Id{B^n} = \Omega_{(\sub1E,\ldots,\sub1E)}^{\,}\Omega_{(\sub1E,\ldots,\sub1E)}^*$.
+\item \textbf{\mathbf{\sub\Id F - TS} is finite rank}: By assumption.
+\item \textbf{\mathbf{-\Omega_x^*S, -T\Omega_y} and \mathbf{\sub \Id{B^n}-\Omega_x^*\Omega_y^{\,}} are compact}: This is due to the fact that $\Omega_y$ and $\Omega_x^{*}$ are compact (proposition \ref{prop: Omega_x eh compacto}) and the set of compact operators is an ideal. 
+\end{alter}
+Therefore, $\sub \Id{E\oplus B^n} - \widetilde S\widetilde T$ and $\sub \Id{F\oplus B^n} - \widetilde T\widetilde S$ are compact operators. Finally, proposition \ref{prop: I-ST compacto ===>  T fredholm} guarantee that both $\widetilde T$ and $\widetilde S$ are regular Fredholm operators. \qedhere
+\end{itroman}
+\end{proof}
+\end{lema}
+
+\begin{definicao}[Regularization of a Fredholm operator]
+\label{def: regularizacao de Fredholm}
+Given an $A$-Fredholm $T\in \sub\adj{A}(E,F)$, the \textit{regularization of $T$} is the $\widetilde{A}$-Fredholm $\widetilde T \in \sub{\adj}{\widetilde{A}}(E\oplus \widetilde{A}^n,F\oplus \widetilde{A}^n)$ constructed in lemma \ref{lema: construcao regularizacao} for $B = \widetilde{A}$. 
+\end{definicao}
+
+\begin{proposicao}
+\label{prop: ruy 3.9}
+For any $A$-Fredholm operator $T$, despite the fact that the regularization $\widetilde T$ is an $\widetilde{A}$-Fredholm operator, the index of $\widetilde T$ lies in $K_0(A)$.
+\begin{proof}
+Let $\ep: \widetilde{A} \longtwoheadrightarrow \C$ the complex projection. Since $K_0(A)$ is the kernel of $\sub\ep{0}$, we seek to obtain that $\sub\ep{0}(\ind \widetilde T) = 0$. We borrow notations and results from the proof of \ref{lema: construcao regularizacao}, i.e. $\sub \Id E-ST= \Omega_y^{\,}\Omega_x^*$ and 
+\begin{equation*}
+    \widetilde T \coloneqq \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix} \e
+    \widetilde S \coloneqq \begin{pmatrix} S & \Omega_y^{\,} \\ 0 & 0\end{pmatrix}
+\end{equation*}
+are regular $\widetilde{A}$-Fredholm operators and pseudo-inverses of each otter. To compute the index of $\widetilde T$, first we obtain that $\rank(\ker \widetilde T) = n\cdot \sub 1{K_0(A)}$; in order to obtain $\rank (\ker \widetilde T^*)= \rank(\ker \widetilde S)$, we will introduce two new operators $P$ and $Q$, such that the rank of $\ker \widetilde{S}$ will coincide with the embedding of trace of $\ep(Q)$, which will be equal to $n$. 
+
+Now, we look to verify those claims:
+\begin{itroman}
+    \item \mathbf{\rank(\ker \widetilde T) = n\cdot \sub{1}{K_0(A)}}: In the proof of Lemma \ref{lema: construcao regularizacao} (\ref{eq: I_E(+)B^n - tilde(S)tilde(T)}), we saw that $\sub\Id{E\oplus \widetilde{A}^n}-\widetilde S\widetilde T=0 \oplus \sub\Id{\widetilde{A}^n}$. Since $\ker \widetilde T = \Im(\sub\Id{E\oplus \widetilde{A}^n}-\widetilde S\widetilde T)$, it follows that \begin{equation*}
+        \rank(\ker \widetilde T) = \left[0 \oplus \sub\Id{\widetilde{A}^n}\right]_0 = n\cdot\left[\sub1{\widetilde{A}}\right]_0 = n \cdot \sub{1}{K_0(A)}.
+    \end{equation*}
+\end{itroman}    
+For notation sake, let:
+\begin{equation}
+    \label{eq: P = Id - wide T wide S}
+       P \coloneqq \sub \Id{F\oplus \widetilde{A}^n} - \widetilde T\widetilde S \overset{(\ref{eq: I_E(+)B^n - tilde(S)tilde(T)})}= \begin{pmatrix}
+    \sub \Id F - TS & - T\Omega_y^{\,} \\ - \Omega_x^*S & \sub\Id{B^n}- \Omega_x^*\Omega_y^{\,}
+    \end{pmatrix}
+\end{equation}
+    
+\begin{enumerate}[label=\ensuremath{(\roman*)}]
+    \setcounter{enumi}{1}
+    \item \textbf{$\boldsymbol{\ker \widetilde S = \Im P}$}. Lets check that the two sets coincide: In one direction, $\widetilde S-\widetilde S\widetilde T\widetilde S = 0$ since $\widetilde S$ and $\widetilde T$ are pseudo-inverses of each other. Hence $\ker \widetilde S \supset \Im P$. Conversely, the elements of the range of $P$ can be written as:
+        \begin{eqspaced*}{}
+            \begin{array}{rcl}
+                P(\zeta+ a) &=& \begin{pmatrix}
+    \sub \Id F - TS & - T\Omega_y^{\,} \\ - \Omega_x^*S & \sub\Id{B^n}- \Omega_x^*\Omega_y^{\,}
+    \end{pmatrix}\begin{pmatrix}
+            \zeta \\ a 
+            \end{pmatrix} \vspace{0.15cm}\\
+            &=& \begin{pmatrix}
+            \zeta - T(S\zeta +\Omega_y^{\,}a) \\ a - \Omega_x^*(\Omega_y^{\,}a + S\zeta)
+            \end{pmatrix}
+            \end{array}
+        \end{eqspaced*}
+        whenever $\zeta \in F$ and $a\in \widetilde{A}^n$. If $(\zeta+ a) \in \ker \widetilde S$, then $P(\zeta + a) = \zeta + a$, hence $\zeta\oplus a$ is in the range of $P$, i.e. $\ker \widetilde S \subset \Im P$.
+\end{enumerate}
+
+Hence, we shall compute $\rank(\Im P)$. Since $\widetilde S$ is a regular Fredholm operator, $\Im P = \ker \widetilde S $ is a finite-rank module (\ref{prop: T fredholm --> ker T e ker T* rank finito}), i.e. $\sub \Id{\Im P}$ can be written as $\Omega_\phi^{\,}\Omega_\psi^*$ for some $m\in \N$ and a pair of tuples $\phi, \psi \in (F \oplus B^n)^m$, hence
+    \[
+    \sub\Id{\Im P} = \Omega_{\phi}\Omega_{\psi}^* \To P = \Omega_{\phi}\Omega_{\psi}^*P
+    \]
+Replacing if necessary each coordinate $\phi_i$ with $P\phi_i$ if necessary, we can assume that $P\Omega_\phi = \Omega_\phi$. This will lead us to the next claim:
+\begin{enumerate}[label=\ensuremath{(\roman*)}]
+    \setcounter{enumi}{2}
+    \item \textbf{\mathbf{Q \coloneqq \Omega_{\psi}^* \Omega_{\phi}^{\,} \in \adj(\widetilde{A}^n)} is an idempotent operator}: Indeed:
+    \begin{equation*}
+        Q^2 \overset{P\Omega_\phi = \Omega_\phi}= (\Omega_{\psi}^*P\Omega_\phi^{\,})^2 =  \Omega_{\psi}^* P\underbrace{(\Omega_{\phi} \Omega_{\psi}^*)}_P P\Omega_{\phi} = \Omega_{\psi}^*\Omega_{\phi}^{\,} = Q.
+ \end{equation*}
+ Therefore, $Q$ is an idempotent operator in $\mathscr L(\widetilde{A}^n)$ which corresponds to left multiplication by the matrix $(\inner{\phi_i}{\psi_j})_{i,j}$, and $\Im Q \simeq \Im P$ as $\widetilde{A}$-modules.
+
+    \item \mathbf{\texttt{\textit{Tr}} \ep(Q) = n}: Let $(e_r)_{r}$ be the canonical basis of $\widetilde{A}^n$. We shall write the coordinates of $\phi$ and $\psi$ as: 
+\begin{equation*}
+        \phi_i = \zeta_i + a_i \e \psi_i = \xi_i + b_i
+\end{equation*}
+    for $\zeta_i, \xi_i \in F$ and $a_i, b_i \in \widetilde{A}^n$. Hence $\ep(\inner{\psi_i}{\phi_i}) = \ep(\inner{b_i}{a_i})$ which enables us to expand in the following way:
+    \begin{equation*}
+        \begin{array}{rcl}
+            \texttt{\textit{Tr}}\ep(Q) &=& \sum\limits_{i=1}^m \ep\left(\left\langle \psi_i, \phi_i\right\rangle\right) \\ &=& \sum\limits_{i=1}^m \ep\left(\left\langle b_i, a_i\right\rangle\right) \\
+        &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle b_i, e_r\right\rangle\left\langle e_r, a_i\right\rangle\right) \\
+        &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle e_r, a_i\left\langle b_i, e_r\right\rangle\right\rangle\right)\\
+        &=&\ep\left(\sum\limits_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle\right) 
+        \end{array}
+    \end{equation*}
+    Using the definition of $P$ in (\ref{eq: P = Id - wide T wide S}), the term $\sum_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle$ can be expressed as
+$$
+\sum_{r=1}^n\left\langle e_r,(\sub\Id{B^n}-\Omega_x^* \Omega_y) e_r\right\rangle=n\cdot \sub 1A-\sum_{r=1}^n\left\langle x_r, y_r\right\rangle
+$$
+hence $\texttt{\textit{Tr}}\ep(Q) = n$.
+\end{enumerate}
+With all these steps, we conclude that 
+\begin{equation*}
+    \rank(\ker \widetilde S) = \rank(\Im P) = \rank(\Im Q) = \texttt{\textit{Tr}}\ep(Q)\cdot \sub{1}{K_0(A)} = n\cdot \sub{1}{K_0(A)}
+\end{equation*}
+and finally that $\sub\ep{0}(\ind \widetilde T) = 0$.
+\end{proof}
+\end{proposicao}
+
+The statement of \ref{prop: ruy 3.9} is meant to refer to the specific construction of $\widetilde{T}$ obtained in \ref{def: regularizacao de Fredholm}. But note that any regular Fredholm operator in $\sub\adj{{A}^u}(E \oplus {\widetilde{A}}^n, F \oplus {\widetilde{A}}^n)$, which has $T$ in the upper left corner, will differ from the $\widetilde{T}$ above, by an ${\widetilde{A}}$-compact operator. Therefore its index will coincide with that of $\widetilde{T}$ by \ref{lema: construcao regularizacao}, and so will be in $K_0(A)$ as well.
+
+\begin{definicao}
+If $T$ is a Fredholm operator in $\adj(E, F)$, then the Fredholm index of $T$, denoted $\ind T$, is defined to be the index of the regular Fredholm operator $\widetilde{T}$ constructed in proposition \ref{prop: ruy 3.9}.
+\end{definicao}
+
+It is clear that all properties listed in \ref{prop: propriedades de fredholm} are naturally extended to general Fredholm operators;
+
+As consequence of the Atikinson's theorem in the classical theory, one can obtain that the original index is locally constant. Since it is now our definition, we can extract the same proof.
+
+\begin{proposicao}
+Let $\mathscr Q(E,F)$ be the Calkin algebra and $\pi: \mathscr L(E,F) \longto \mathscr Q(E,F)$ be the quotient projection. The set of Fredholm operators $\mathscr F(E,F) \coloneqq \pi^{-1}\GL\mathscr Q(E,F) \subset \adj(E,F)$ is an open subset and $\ind : \mathscr F(E,F)\longto K_0(A)$ is locally constant.
+\begin{proof}
+The fact that $\mathscr F(E,F)$ is an open set follows from the continuity of $\pi$ on the the invertible elements of a unital $C^*$-algebra. To check the continuity of the index, let $T$ be a Fredholm operator and $S$ be one of its pseudo-inverses. If $R$ is a Fredholm operator in the open ball around $T$ of radius $\|S\|^{-1}$,
+\[
+\|TS - RS\| \leqslant \|T-R\|\|S\| \leqslant 1.
+\]
+Hence $\Id - (TS - RS)$ is a invertible Fredholm operator, which means that it has index 0. Notice that $(\Id - (TS - RS))T = RST$. Therefore:
+\begin{equation*}
+    \begin{array}{rcl}
+        \ind T &=& \ind((\Id - (TS - RS))T) \\
+        &=&\ind(RST) = \ind R+\ind S + \ind T
+    \end{array}
+\end{equation*}
+hence $\ind R = - \ind S$. Since $R$ was an arbitrary element of the open ball, it follows necessarily that $\ind {\restrita}_{{B}(T, {\|S\|^{-1}})}(R) = -\ind S$, i.e. the index is locally constant.
+\end{proof}
+\end{proposicao}
+
+\begin{proposicao}
+Choose $A$-Fredholm operators $T_1$ and $T_2$ between the following Hilbert $A$-modules.
+\begin{equation*}
+\begin{tikzcd}
+E \arrow[r, "T_1"'] \arrow[rr, "T_2T_1", bend left] & F \arrow[r, "T_2"'] & G
+\end{tikzcd}
+\end{equation*}
+Therefore, $T_2T_1$ is a Fredholm operator and $\ind(T_2T_1) = \ind T_1 + \ind T2$.
+\begin{proof}
+
+Assume beforehand that $E=F=\HA$ and consider $H_t : \HA \oplus \HA \longto \HA \oplus \HA$ be a continuous path of Fredholm operators given by 
+\begin{equation*}
+    H_t \coloneqq 
+    \begin{inlinematrix}
+    T_1 & 0\\0 & \Id
+    \end{inlinematrix}
+    \begin{inlinematrix}
+    \cos(t) & -\sin(t)\\
+    \sin(t) & \cos(t)
+    \end{inlinematrix}
+    \begin{inlinematrix}
+    \Id & 0\\0 & T_2
+    \end{inlinematrix}
+    \begin{inlinematrix}
+    \cos(t) & \sin(t)\\
+    -\sin(t) & \cos(t)
+    \end{inlinematrix}
+\end{equation*}
+for $t\in [0,\pi/2]$, which connects $T_1\oplus T_2$ to $T_2T_1\oplus \Id$. Therefore 
+\begin{equation*}
+    \begin{array}{rcl}
+        \ind(T_2T_1) &=& \ind(H_{\pi/2}) = \ind(H_0) \\
+        &=& \ind(T_1 \oplus T_2) = \ind T_2 + \ind T_1.
+    \end{array}
+\end{equation*}
+The general case follows by using the Kasparov stabilization theorem \ref{teo: kasparov stabilization}.  
+\end{proof}
+\end{proposicao}
+
+\begin{proposicao}
+    \label{prop: indice sobrejetivo}
+For any $\alpha \in K_0(A)$, there exists a Fredholm operator $T$ with $\ind(T)=\alpha$.
+\begin{proof}
+Write $\alpha = [p]_0 - [q]_0$ with $\sub\ep0([p]_0 - [q]_0)=0$, for self-adjoint idempotent matrices. Hence $\ep(p)$ and $\ep(q)$ are similar matrix. After performing a conjugation of, say $q$, by a complex unitary matrix, we may assume that $\varepsilon(p)$ and $\varepsilon(q)$ are in fact equal, hence $(p-q) \in \mathbb M_n(A)$. With bricks in hands, choose 
+\begin{equation*}
+    \function{{T}{pA^n}{qA^n}{x}{qx}}
+\end{equation*}
+which is our desired Fredholm operator we were looking for, as showed in the following claims.
+\begin{itroman}
+\item \textbf{\ensuremath{\boldsymbol{T}} is a Fredholm operator}: Let $S: q A^n \longto p A^n$ be the similar operator given by $Sy=py$. Let $\left(\sub{u}{\lambda}\right)_\lambda$ be an approximate identity for $A$. Therefore, consider the tuples $\xi$ and $\eta^\lambda$, where their coordinates are given by:
+\begin{eqspaced*}{(1 \leq i \leq n)}
+    \xi_i=p(p-q) p_i^{\vphantom{*}} \e \eta_i^\lambda=p_i^{\vphantom{*}} \sub{u}{\lambda}
+\end{eqspaced*}
+With the tuples defined, remember that $\sub{\inner{a}{b}}A = a^*b$, hence:
+\begin{eqspaced*}{}
+    \begin{array}{rcl}
+        \Omega_{\xi}^{\,} \Omega_{\eta^\lambda}^*x &=& \sum\limits_{i=1}^n \xi_i\sub{\inner{\eta_i^\lambda}{x}}{A}\\ 
+        &=& \sum\limits_{i=1}^n \xi_i\big(({p_i^{\vphantom{*}}\sub u\lambda})^*{x}\big)\\ 
+        &=& \sum\limits_{i=1}^n p(p-q) p_i^{\vphantom{*}} \sub{u}{\lambda} p_i^* x
+    \end{array}
+\end{eqspaced*}
+for each $x\in pA^n$. Therefore, the following converges uniformly:
+\begin{eqspaced*}{(\|x\|\leq 1)}
+    \hspace{-0.1cm}
+    \begin{array}{rcl}
+    \displaystyle
+        \lim_\lambda \Omega_\xi^{\,}\Omega_{\eta^\lambda}^* x &=& \sum\limits_{i=1}^n p(p-q) p_i^{\,} p_i^* x \\
+        &=& p(p-q) p x \\
+        &=& x-p q x=(\Id -S T) x 
+    \end{array}
+\end{eqspaced*}
+The above shows that $\sub\Id {pA^n}-ST $ is compact, and the same conclusions can be drawn for $\sub\Id {qA^n} - TS$ also. By applying \ref{prop: I-ST compacto ===>  T fredholm}, the claim is proved.
+\item \textbf{\ensuremath{\boldsymbol{\ind T = \alpha}}}: In order to compute the index of $T$, consider the operators 
+\begin{equation*}
+    T'=\begin{inlinematrix}
+q p & q(I-p) \\
+(I-q) p & (I-q)(I-p)
+\end{inlinematrix} \e {S}'=\begin{inlinematrix}
+p q & p(I-q) \\
+(I-p) q & (I-p)(I-q)
+\end{inlinematrix}
+\end{equation*}
+Direct computation shows that
+\begin{equation*}
+    {S}' {T}'=\begin{inlinematrix}
+\sub \Id{pA^n} & 0 \\
+0 & \sub\Id{\widetilde{A}^n}-p
+\end{inlinematrix} \e {T}' {S}'=\begin{inlinematrix}
+\sub\Id{qA^n} & 0 \\
+0 & \sub\Id{\widetilde{A}^n}-q
+\end{inlinematrix},
+\end{equation*}
+from which it follows that ${S}'$ is a pseudo-inverse for ${T}'$ and hence that ${T}'$ is a regular $\widetilde{A}$-Fredholm operator. 
+
+By construction, $\Id - S'T'$ and $\Id - T'S'$ are compact self-adjoint idempotents, hence their ranges are finite rank modules (\ref{prop: compacto idempotente eh rank finito}). Moreover, we already know that
+\begin{equation*}
+    \Im(\Id - S'T') = \ker T' \e \Im(\Id - T'S') = \ker S'
+\end{equation*}
+which turns possible the index calculation: 
+\begin{equation*}
+    \begin{array}{rcl}
+        \ind T &=& \ind {T}'\\
+        &=& \rank(\ker T') - \rank(\ker S') \\
+        &=& \rank \Im(I-{S}' {T}')-\rank \Im (I-{T}' {S}')\\
+        &=& [p]_0-[q]_0 = \alpha
+    \end{array}
+\end{equation*}
+as desired. \hfill \qedhere
+\end{itroman}
+\end{proof}
+\end{proposicao}
+
+\section[Fredholm Picture of \texorpdfstring{\ensuremath{K_0(A)}}{K0(A)}]{Fredholm Picture of \texorpdfstring{\mathbf{K_0(A)}}{K0(A)}}
+
+We already saw that every element of $K_0(A)$ is the index of some Fredholm operator.
+
+In order to avoid any set-theoretical problems, choose $\omega$ to be one of your favorite cardinal numbers, as long as it is greater than the cardinality of each and every $A^n$ for every integer $n$. Denote by $F_0(A)$ the family of all $A$-Fredholm operators whose domain and codomain are Hilbert modules with cardinality no larger than $\omega$. With the addition given by the direct sum, this is a unital, abelian semi-group. We will introduce a equivalence relation in $F_0(A)$, by characterizing whenever two operators $T_1$ and $T_2$ contains the same index.
+
+Notice that whenever $T \oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator, one can conclude by \ref{teo: diferenca compacta, indices simetricos} that $\ind T = 0$. This is a good indicator for an equivalence relation:
+
+\begin{proposicao}
+    \label{prop:ind(T)=0 --> T(+)Id eh perturbacao compacta de invertivel}
+Let $T\in \adj(E,F)$ be Fredholm operator with $\ind T = 0$. Therefore, there exists some integer $n$ such that $T\oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator.
+
+\begin{proof}
+Let $\widetilde{T}$ be the regularization of $T$ and, as always, there is an integer $n$ and a operator $S$ such that $\Id-\widetilde{S}\widetilde{T} = 0 \oplus \sub\Id{\widetilde{A}^n}$ described in the proof of Lemma \ref{lema: construcao regularizacao} (\ref{eq: I_E(+)B^n - tilde(S)tilde(T)}). 
+
+\begin{itroman}
+\item \textbf{There exists \mathbf{n} such that \mathbf{\Im (I-\widetilde{T}\widetilde{S})\cong \widetilde{A}^n}}: The hypothesis of null index is equivalent to $\rank \Im(\Id-\widetilde{S}\widetilde{T}) = \rank \Im(\Id-\widetilde{T}\widetilde{S})$, hence
+\begin{equation*}
+    \rank \Im(\Id-\widetilde{T}\widetilde{S}) = \rank \Im (0\oplus \sub{\Id}{\widetilde{A}^n}) = n \cdot \sub{1}{K_0(A)}
+\end{equation*}
+i.e. $\Im(\Id-\widetilde{T}\widetilde{S})$ is stably isomorphic to $\widetilde{A}^n$ as $\widetilde{A}$-modules, meaning that for some integer $r$, $\Im(\Id-\widetilde{T}\widetilde{S}) \oplus \widetilde{A}^r \simeq \widetilde{A}^{n+r}$. Remember that $\Omega_x^* =  \left(\inner{x_i}{\come}\right)_{i\leq n}$, hence, for $0 \in E^m$, $\Omega_{(x,0)}^*(\come) = (\Omega_x^*(\come), 0)$ and the regularization $\widetilde{T}$ can be updated to
+\begin{equation*}
+    \widetilde{T} = \begin{pmatrix}
+    (T,0) & 0 \\ \Omega_{(x,0)}^* & 0 
+    \end{pmatrix}
+\end{equation*}
+As seen, $n$ can be increased without essentially changing $\widetilde{T}$. Therefore, there is no danger in assuming that $\Im(I-\widetilde{T}\widetilde{S}) \simeq \widetilde{A}^n$. 
+
+\item \textbf{There} \textbf{is} \textbf{a} \textbf{orthonormal} \textbf{generating set} \mathbf{\left((\zeta_i + a_i)\right)_{i\leq n} \subset \Im(I -\widetilde{T}\widetilde{S})} \textbf{such} \textbf{that} \mathbf{\ep((\sub a{1}, \ldots, a_n)) = \sub\Id{\mathbb M_n(\widetilde{A})}}: Let $\left(p_i\right)_{i\leq n} \subset \Im (I-\widetilde{T}\widetilde{S})$ with $p_i = (\zeta_i + a^{\,}_i) \in F\oplus \widetilde{A}^n$. The elements $p_i$ can be choosen so that they generate the module and $\inner{p_i}{p_j} =  \delta_{i,j}$, i.e. they are orthonormal. Since each $a^{\,}_i \in \widetilde{A}^n$, one can write $a^{\,}_i = (a^{\,}_{i,r})_{r \leq n}$. Hence, orthonormality can be written as:
+\begin{equation*}
+    \begin{array}{rcl}
+        \delta_{i,j} &=& \sub{\inner{p_i}{p_j}}{F\oplus \widetilde{A}^n} \\
+        &=& \vphantom{\sum\limits^n} \sub{\inner{\zeta_i}{\zeta_j}}F + \sub{\inner{a^{\,}_i}{a^{\,}_j}}{\widetilde{A}^n} \\
+        &=& \sub{\inner{\zeta_i}{\zeta_j}}F + \sum\limits_{r=1}^n\sub{\inner{a^{\,}_{i,r}}{a^{\,}_{j,r}}}{\widetilde{A}} \\
+        &=& \sub{\inner{\zeta_i}{\zeta_j}}F + \sum\limits_{r=1}^n a^*_{i,r}a_{j,r}^{\,}
+    \end{array}
+\end{equation*}
+The projected matrix $u \coloneqq \ep((a^{\,}_{i,r})_{i,r})$ is unitary, i.e. $uu^* = u^*u = \sub\Id{\mathbb M_n(\widetilde{A})}$. Whence, setting $q_{i} \coloneqq \sum_{j} u_{ij}^* p_j$, we obtain $q_i = \xi_i+ b_i$ in which $\ep(b_{i,j}) = \delta_{i,j}$, i.e. $\ep((\sub b1, \ldots, b_n)) = \sub\Id{\mathbb M_n(\widetilde{A})}$. At the end of the day, one can suppose that $(p_i)_{i\leq n}$ attends the required condition, otherwise, replace $p$ by $q$.
+
+%\item \textbf{\mathbf{U \coloneqq \begin{inlinematrix}T & \Omega_{\zeta} \\ \Omega_x^* & \Omega_{a} \end{inlinematrix}} is invertible}: As in the proof of \ref{lema: construcao regularizacao}, we suppose that $\Id - ST = \Omega^{\,}_y\Omega_x^*$. By the features ensured about the elements $a=(\sub a1, \ldots, a_n)$, notice that $\Omega_a : \widetilde{A}^n \longto \Im (I-\widetilde{T}\widetilde{S})$ is an isomorphism.
+\end{itroman}
+With this simplifications, we have in hands the following isomorphism:
+\begin{equation*}
+    \function{{U}{E\oplus \widetilde{A}^n}{F\oplus \widetilde{A}^n}{\xi + b}{\begin{inlinematrix}T & \Omega_{\zeta} \\ \Omega_x^* & \Omega_{a} \end{inlinematrix}\begin{inlinematrix} \xi \\ b \end{inlinematrix}}}
+\end{equation*}
+since $\Omega_\zeta \oplus \Omega_a$ is an explicit isomophism between $\Im(\Id - \widetilde{T}\widetilde{S})$ and $\widetilde{A}^n$. Notice that $\con{(E\oplus \widetilde{A}^n)\cdot A} = A^n$ for any Hilbert $A$-module $E$. Thus, $U$ can be restricted to an element in $\GL \adj(E\oplus A^n, F\oplus A^n)$. With this in mind, notice that the difference operator
+\begin{equation*}
+    U - T \oplus \sub{\Id}{A^n} = \begin{pmatrix}
+        0 & \Omega_\zeta \\ \Omega_x^* &  ((a_{ij}- \delta_{ij}))_{i,j}
+    \end{pmatrix}
+\end{equation*}
+is compact, since the right lower entry $((a_{ij}- \delta_{ij}))_{i,j}$ is compact. But this matrix was seen to be in $\mathbb M_n(A)$, since its projection by $\ep$ is zero.  
+\end{proof}
+\end{proposicao}
+
+As consequence, proposition \ref{prop:ind(T)=0 --> T(+)Id eh perturbacao compacta de invertivel} immediately characterizes whenever two Fredholm operators between different Hilbert modules have the same index.
+
+\begin{corolario}
+Whenever two Fredholm operators $T_i\in \adj(E_i,F_i)$ ($i\in \{1,2\}$) share the same index $\ind T_1 = \ind T_2$, there exists a integer $n$ such that 
+$$
+T_1 \oplus T_2^* \oplus \sub\Id{A^n} : E_1 \oplus F_2 \oplus A^n \longto E_2\oplus F_1 \oplus A^n
+$$ 
+is a $A$-compact perturbation of an invertible operator.
+\end{corolario}
+
+Declare two operators in $T_1, T_2 \in F_0(A)$ to be equivalent whenever $T_1 \oplus T_2^* \oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator, i.e. $\ind T_1 = \ind T_2$. Denote $F(A)$ to be the induced set of equivalence classes, which is an abelian group when equipped with the direct sum operation $\oplus$, where $(\come)^{-1}: T \longmapsto T^*$. 
+
+It is about time to consider the index map between $F(A)$ and $K_0(A)$, since \ref{prop: indice sobrejetivo} already shows that it is a surjective map, and the equivalence relation ensures the injectivity. More over, since $[\diag(x,y)]_0 = [x]_0+[y]_0$ in $K_0(A)$, we had produced the following Atiyah-Jänich analogue:
+
+\begin{corolario}\label{corol:atiyah-janich}
+The index map 
+$$
+\ind : F(A) \longto K_0(A)
+$$ 
+is a group isomorphism.
+\end{corolario}
+
+%Not only analogue, equivalent: Let $K^0(X)$ be the $K$-group of a compact Hausdorff space $X\in \CHaus$, in the realm of topological $K$-theory.

@@ -1,0 +1,62 @@
+\section{General portrait of homological theories}
+A homological theory for a category $\mathcal C$ consist in a sequence of covariant functors $H_n : \mathcal C \longto \Ab{\Grp}$ for each $n\in \N$ which satisfies some set of axioms, which depends on what theory one is interested. For example, if $\mathcal C$ contains a nice homotopical concept, it is rather common to ask for homotopical invariance. Some other axioms are required to obtain long exact sequences in order to deal with short exact sequences. The usual notation is:
+\begin{equation*}
+    \describefunctor{H_n}{\mathcal{C},A,\phi,B}{\Ab{\Grp},H_n(A),\phi_n,H_n(B)}
+\end{equation*}
+We also need a way to translate short exact sequences of the form
+$$0 \longto A \longto B \longto C \longto 0$$ 
+from the original category to higher counterparts obtained by $H_n$, hence, every homology theory seeks to define a connecting morphism $\delta_n : H_n(C) \longto H_{n+1}(A)$ into a long exact sequence: 
+\begin{equation*}
+    \begin{tikzcd}
+  H_0(A) \rar & H_0(B) \rar 
+             \ar[draw=none]{d}[name=X, anchor=center]{}
+    & H_0(C) \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (X.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dll}[at end]{\sub\delta0}  \\
+  H_1(A) \rar & H_1(C) \rar 
+             \ar[draw=none]{d}[name=Y, anchor=center]{}
+    & H_1(B) \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (Y.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dll}[at end]{\sub\delta1} \\ 
+    H_2(A) \rar & H_2(B)\rar  & \cdots  \\
+\end{tikzcd}
+\end{equation*}
+
+On the other hand, as everything containing the prefix ``co'', cohomology theories are consisted of contra-variant functors $(H^n)_{n}$ with the same pay-off. The position of the index on the notation usually indicates what sort of theory one is dealing with. 
+
+Here we are concerned with a homology theory for complex Banach Algebras $\BAlg$ or, more popularly, for $C^*$-algebras $\Cstar$, a.k.a., $K$-theory for Operator Algebras. It is the mirror image of Topological $K$-theory (developed by \textsc{M. F. Atiyah} and \textsc{F. Hirzebruch} \cite{atiyah1959riemann}), in light of \textit{Gelfand Duality} connecting the category of Locally Compact Hausdorff spaces and complex abelian $C^*$-algebras, but not restricted to commutative spaces, which is often referred to as the ``Non-Commutative Topology''. 
+
+%In his work to reformulate Riemman-Roch theorem \cite{borel1958theoreme}, \textit{A. Grothendieck} introduces the group $K(A)$ associated to a subcategory of an abelian category, which nowadays, it is the so called ``Grothendieck's group''. That's where is from the letter $K$, which he had chosen for ``Klassen''. His reformulation famously contains his legendary drawing:
+%\begin{figure}[H]
+%	\centering
+%	\input{figures/grothendieck-riemann-roch.tex}
+%\end{figure}
+%\begin{quote}
+%	\textsl{Riemann-Roch Theorem: the new black: The diagram}
+%	$$[\ldots] \textsl{ is commutative!}$$
+%	\textsl{I would need to misuse about $2 h$ of my listener's time in order to impart only an approximal understanding of this statement for }$f:X \longrightarrow Y$.
+	
+%	\textsl{In cold print (as in Springer's lecture notes) this would take around $400$-$500$ pages.}
+	
+%	\textsl{A thrilling example of how our urge for knowledge and discoveries decays into a lifeless and ideological delirium while life itself goes thousandfold to the devil - and is threatened with final destruction.}
+	
+%	\textsl{It's high time to change our course!}
+
+%	$(16.12 .1971)$ \hfill Alexander Grothendieck
+%\end{quote}
+%With his work settled in what is about to be algebraic $K$-theory, topological $K$-theory would be a product of \textit{M. Atiyah} and \textit{F. Hirzebruch} replicating Grothendieck's construction for topological vector bundles over compact Hausdorff spaces. 
+
+We shall construct functors $K_n:\BAlg \longto \Ab{\Grp}$ and the connecting maps will be call \textit{index map}, denoted by $\partial$. A remarkable aspect of operator $K$-theory is the \textit{Bott periodicity}: $K_n \simeq K_{n+2}$, which then describes for any short exact sequence $0 \longto I \longto A \longto A/I \longto 0$, where $I\triangleleft A$, a six-term exact sequence:
+\begin{equation*}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9YgCgEkAlCAC+pdJlz5CKAIzkqtRizZdeAQSGjx2PASIAmedXrNWiDtwA6lhjABmOHtYC2dgE50AxgAI1fa25YAOYAFjiaYiAYOlJEZDIKJsrmXDLWtg5Olq4ePn4BwWER2pJ6sqQJxkpmFjI8GiKR0aXSyIaViqYqnHWCIgowUEHwRKDuEM5IZCA4EEgyWiDjk4hyM3OI+ovLSIbrSACsVV3m1mh0bniMjWNuE4fUs0gALNt3K8+PGwDMb-eI3y+U2OyRAZwuVwY-WEQA
+\begin{tikzcd}
+K_0(I) \arrow[r]                                & K_0(A) \arrow[r] & K_0\left(A/I\right) \arrow[d, "\partial"] \\
+K_1\left(A/I\right) \arrow[u, "\partial"] & K_1(A) \arrow[l] & K_1(I) \arrow[l]                               
+\end{tikzcd}
+\end{equation*}
+
+The details about functorial properties will be spared since it is outside of our scope. We will only include the definition of the groups $K_0$ and $K_1$ for complex Banach algebras, and the index map mentioned. The connecting map will be used in the classification of finite rank modules (Theorem \ref{teo: M N quasi stably iso ==> rank igual}), and later on, the index of our Fredholm operators. Hence it is important to define it in a helpful way. 

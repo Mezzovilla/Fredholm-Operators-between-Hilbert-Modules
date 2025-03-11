@@ -1,0 +1,29 @@
+\begin{observacao}
+	In light of example \ref{exemplo: familia continua de operadores}, let $T:X \longto \mathscr F(\ell^2(\N))$ be a continuous family of classical Fredholm operators. We saw that $\widehat T : \xi \longmapsto T_{(\come)}{\xi(\come)}$ for $\xi \in \sub{\mathscr H}{C(X)}$ was a $C(X)$-Fredholm operator. 
+	
+	However, since $\ell^2(\N)$ is a separable Hilbert space, one can consider an orthogonal basis $\left(e_n\right)_n \subset \ell^2(\N)$ and let $H_n\coloneqq L_n(\ell^2(\N))$ be the closed subspace spanned by $\sub e0, \sub e1, \ldots, e_{n-1}$, and let $p_n$ be the associated projection. Let $\operatorname{Vect}(X)$ denote the abelian semi-group of isomorphism classes of all (complex) vector bundles over $X$. 
+	
+	Using topological $K$-theory, one can define a topological  index given by
+	\begin{equation*}
+		\con\ind T \coloneqq [\ker p_n\circ T]_{0} - [X \times H^\perp_n]_0 \in K^0(X)
+	\end{equation*}
+	for a sufficiently large $n$, where $[\come]_{0}$ is the isomorphism class in $\operatorname{Vect}(X) \longhookrightarrow K(X)$, where 
+	\begin{equation*}
+		\ker p_n\circ T \coloneqq \bigcup_{x\in X} \ker p_n\circ T_x
+	\end{equation*}
+	is a vector bundle over $X$, and $\ker (p_n\circ T)^*_x = H_n^{\perp}$ for all $x$, i.e., $\ker (p_n\circ T)^*$ is the trivial bundle $X \times H_n^\perp$.
+	
+	If $\widehat{T}$ is the induced $\sub{\mathscr H}{C(X)}$-Fredholm operator in which $\widehat{T}(\xi): x\longmapsto T_x\xi(x)$, for any $x\in X$, let $\ev_x : \sub{\mathscr H}{C(X)} \longto \ell^2(\N), \ev_x(\xi) \coloneqq \xi(x)$ denote the standard evaluation, such that $\widehat{T} = T_{(\come)}\ev_{(\come)}$. Therefore:
+	\begin{eqnarray*}
+		\ker \widehat{T} &=& \{\xi \in \sub{\mathscr H}{C(X)} \mid \forall x \in X, i\in \N, \Pi_i T_x\xi(x) = 0\} \\
+		&=& \{\xi \in \sub{\mathscr H}{C(X)} \mid \forall x \in X, T_x\xi(x) = 0\} \\
+		&=& \bigcup_{x\in X} \ker T_x\ev_x
+	\end{eqnarray*}
+	\end{observacao}
+	
+	\begin{equation*}
+	\begin{tikzcd}
+		{[X,\mathcal F(\ell^2(\mathbb N))]} \arrow[d, "\text{ind}"'] \arrow[rr, dashed] &  & F(C(X)) \arrow[d, "\text{ind}"] \\
+		K^0(X) \arrow[rr, equal]                                          &  & K_0(C(X))                      
+		\end{tikzcd}
+	\end{equation*}

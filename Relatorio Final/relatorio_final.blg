@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: relatorio_final.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+Database file #1: ref.bib
+Warning--empty year in exel7fredholm
+Warning--there's a number but no series in raeburn1998morita
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            542 strings with 5226 characters,
+and the built_in function-call counts, 1790 in all, are:
+= -- 185
+> -- 59
+< -- 1
++ -- 25
+- -- 18
+* -- 128
+:= -- 310
+add.period$ -- 23
+call.type$ -- 6
+change.case$ -- 26
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 66
+empty$ -- 149
+format.name$ -- 18
+if$ -- 366
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 37
+num.names$ -- 12
+pop$ -- 17
+preamble$ -- 1
+purify$ -- 21
+quote$ -- 0
+skip$ -- 41
+stack$ -- 0
+substring$ -- 127
+swap$ -- 7
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 2
+while$ -- 19
+width$ -- 7
+write$ -- 75
+(There were 2 warnings)

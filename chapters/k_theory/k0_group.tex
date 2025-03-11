@@ -1,0 +1,115 @@
+\section[The \texorpdfstring{\ensuremath{K_0}}{K0} group]{The \texorpdfstring{\mathbf{K_0}}{K0}-group}
+\label{sec:the_k0_group}
+Our object is to deal with Hilbert $C^*$-modules, which are complete right $A$-modules with a generalized $A$-valued inner product for a given $C^*$-algebra $A$ (plus some other details listed in \ref{def: pre-hilb module}), generalizing the concept of Hilbert space. Unfortunately, as we will see later on, there is no \textit{Riesz representation lemma} and, there exists bounded linear operators that are not adjointable between Hilbert modules \ref{contraexemplo: paschke non adjointable}.
+
+$K$-theory will be important since the index of our Fredholm operators will take values in the $K_0$ group of the scalar coefficients algebra $A$. Therefore, it is reasonable to understand some $K$-theory for $C^*$-algebras. But, it will be convenient to consider non necessarily self-adjoint idempotents (e.g. in the proof of \ref{teo: M N quasi stably iso ==> rank igual}), so that we can use $K$-theory for Banach algebras as our machinery. This is no big deal at all, since the induced constructions are equivalent when the Banach algebra in question happens to be a $C^*$-algebra.
+
+%In a topological framework, $K$-theory goes roughly in the following lines in order to define the $0^{\underline{\text{th}}}$ $K$ group for a given compact Hausdorff topological space $X$: Consider a complex vector bundle $E$ over $X$ and take the right $C(X)$-module $\Gamma(X,E)$ of continuous sections $s:X\longto E$ with pointwise scalar multiplication. Finally, one defines $K^0(X)$ to be the \textit{Grothendieck's group} of the equivalence classes of all isomorphisms between vector bundles over the space $X$.
+
+%Compactness of $X$ implies that $\Gamma(X,E)$ is a projective $C(X)$-module, and \textit{Serre-Swan} theorem  \cite[Theorem 6.18.]{karoubi2008k} states that $E\longmapsto \Gamma(X,E)$ induces an equivalence between the category of complex vector bundles and finitely generated projective $C(X)$-modules. 
+
+For a given Banach Algebra $A$, the following definitions and constructions are inspired in the topological framework, by replacing vector bundles by finitely generated projective $A$-modules. 
+
+\begin{definicao}
+\label{def: idempotentes equivalentes}
+In any given Banach algebra $A$, for two idempotent elements $x$ and $y$, define the following notions of equivalence: 
+\begin{itroman}
+\item \textbf{Murray-von-Neuman equivalence}: There are elements $p,q\in A$ such that $x=pq$ and $y=qp$.
+\item \textbf{Similarity}: Assuming that $A$ is unital, there exists an invertible element $u\in \GL(A)$ such that $x = \inv u y u$.
+\item \textbf{Homotopic}: There is a continuous path  $\gamma \in C([0,1], A)$ of idempotents between $x$ and $y$, i.e.,
+\begin{equation*}
+    \gamma(0) = x, \gamma(1)=y \e \forall\,t\in [0,1], \gamma(t)^2 = \gamma(t).
+\end{equation*}
+\end{itroman}
+If $A$ is assured to be a $C^*$-algebra, those definitions are concerned with self-adjoint idempotent elements, a.k.a., projections. Two projections $x, y$ are equivalent if there exists a \textit{partial isometry} $u$ such that $x= u^*u$ and $y=uu^*$.
+\end{definicao}
+
+
+
+For the canonical embedding $x \longmapsto \diag(x,0)$ over matrices, consider the inductive limit $\mathbb M_\infty(A) \coloneqq \varinjlim_{n\in \N} \mathbb M_n(A)$, which can be seen as the set of infinite matrices over $A$ but only finitely many of the entries are non-zero. 
+
+\begin{observacao}
+\label{obs: similar em M_inf}
+Note that $\mathbb M_\infty(A)$ contains no unity, but that doesn't stop us to declaring two elements $x,y$ to be similar when they are similar in some square matrix space $\mathbb M_n(A)$. Therefore, all equivalence relations listed in the definition \ref{def: idempotentes equivalentes} coincide in $\mathbb M_\infty(A)$.
+\end{observacao}
+
+Simply shouting ``Let $A$ be a $C^*$-algebra'' in the crowd is a powerfull classification tool, whenever is a mathematicians crowd\footnote{Otherwise, you are just playing creepy at dinner table again.}. 
+\begin{itroman}
+    \item If you hear in response ``unital or not?'', you know that there is some $C^*$-algebraic fellow around you.
+    \item If the crowd contains mathematicians and no-one asks if $A$ contains a unity or not, no $C^*$-algebraist is contained in the crowd. They are instantly assuming the unity is there. 
+\end{itroman}
+
+This is because dealing without unital rings outside $C^*$-theories are usually simple. Just unitise and go on. However, the presence of unity in $C^*$-algebras is crucial to determine their underlying hidden topology, as explicitly is made in \textit{Gelfand's duality} theorem.
+
+The next definition is in charge to define the functor $K_0$ for both cases, but some intermediate steps are required from one to another.
+
+\begin{definicao}
+Let $A$ be a Banach algebra. The set of equivalence classes on $P_\infty(A) \coloneqq \{x \in \mathbb M_\infty(A) \mid x^2 = x\}$ considering any relation $\sim$ contained in \ref{def: idempotentes equivalentes} is an abelian semi-group with $[x]+[y] \coloneqq [\diag(x,y)]$. Before defining $K_0$, in order to include the non necessarily unital algebras, it is needed to be considered an auxiliar functor $K_{00}$ much closer to the topological counterpart $K^0$ for compact spaces. This is necessary in order to obtain the Bott periodicity result for Banach algebras, and other good functorial properties.
+
+\begin{itroman}
+\item \textbf{\mathbf{K_{00}}}: It is the Grothendieck group construction associated with the semi-group $V({A}) \coloneqq P_\infty(A)/{\sim}$ where addition is given by $[x]+ [y] \coloneqq [\diag(x,y)]$, generalising the construction of $\Z$ from $\N$ considering formal differences. In lighter sheets, for pairs $(a,b)$ and $(c,d)$ of elements in $V(A)$, let $(a,b) \equiv (c,d)$ whenever there exists\footnote{Since it is only a semi-group, the cancelation property do not hold necessarily over $V(A)$. One might check that this is the case if, and only if, the canonical map of $V(A)$ to the Grothendieck's associated group is injective.} $z \in V(A)$ such that $a+d+z = c+b+z$. This is an equivalence relation over the pairs, and $[\come]_{00}$ will denote the related equivalence class. 
+
+We are mimicking the formal differences construction, so it is natural to define the addition operation coordinate-wise and let $[x]_{00}-[y]_{00} \coloneqq [(x,y)]_{00}$. Therefore, it is well defined the following covariant functor:
+\begin{equation*}
+    \covfunctor{{K_{00}}{\BAlg}{\Ab{\Grp}}{A}{\mfrac{V(A)\times V(A)}{\equiv}}{B}{\mfrac{V(B)\times V(B)}{\equiv}}{\phi}{\sub\phi{00}}{[x]_{00}-[y]_{00}}{[\phi(x)]_{00}-[\phi(y)]_{00}}}
+\end{equation*}
+
+Since every element in $V(A)$ is the class of some idempotent matrix $p$, we can state that every element in $K_{00}(A)$ is on the form $[p]_{00} - [q]_{00}$. %Two formal differences $[p]_{00}-[q]_{00}$ and $[x]_{00}-[y]_{00}$ coincide in $K_{00}(A)$ precisely when the operators $\diag(p,y)$ and $\diag(x,q)$ are \textit{stably} homotopic. 
+\item \textbf{\mathbf{K_0}}: In our next step, it's crucial to know exactly who $K_{00}(\C)$ is. Hence, remember that two idempotents in $\mathbb M_n(\C)$ are similar if, and only if, their images has the same dimension. Therefore $V(\C) \simeq \N$, and by historical nightmares with Analysis I exercise constructing the integer numbers, it is easy to infer that $K_{00}(\C) = \Z$. 
+
+For non necessarily unital $A$, consider $\widetilde{A} \coloneqq A \oplus \C$ the \textit{unitisation} of $A$ and the complex projection $\varepsilon: \widetilde{A} \longtwoheadrightarrow \C$, which induces the short exact sequence:
+\begin{equation*}
+    \label{eq:short exact sequence unital}
+\begin{tikzcd}
+    0 \arrow[r] & A \arrow[r, hook] & \widetilde A \arrow[r, "\varepsilon", two heads] & \mathbb C \arrow[r] & 0
+    \end{tikzcd}
+\end{equation*}
+The urge to obtain Bott periodicity theorem for Banach algebras, which is a relation between $K_0$ and $K_1$ in the presence of short exact sequences, will obligate the exactness of the following:
+\begin{equation*}
+    \label{eq:K0(short exact sequence unital)}
+\begin{tikzcd}
+    0 \arrow[r] & K_0(A) \arrow[r, hook] & K_0(\widetilde A) \arrow[r, "\sub\varepsilon0", two heads] & K_0(\mathbb C) \arrow[r] & 0
+    \end{tikzcd}
+\end{equation*}
+Since it is a morphism between unital Banach algebras, the induced map $\sub{\ep}{00} : K_{00}(\widetilde{A}) \longto \Z$ is a well defined morphism, hence, it is possible to define the following:
+\begin{equation*}
+    \covfunctor{{K_0}{\BAlg}{\Ab{\Grp}}{A}{\ker(K_{00}(\widetilde{A}) \to \Z)}{B}{\ker(K_{00}(\widetilde{B}) \to \Z)}{\phi}{\sub\phi0}{a+ z}{\phi(a)+z}}
+\end{equation*}
+Notice that $K_0(A)$ is precisely the set of elements $[p]_0-[q]_0 \in K_{00}(\widetilde{A})$ such that $\ep(p) \sim \ep(q)$. If $A$ is already unital, it is possible to show that $K_0(A) \simeq K_{00}(A)$. 
+\end{itroman}
+\end{definicao}
+
+\begin{observacao}
+    The argument to show that $V(\C) \simeq \N$  is equivalent for compact operators in an infinite-dimensional Hilbert space $H$, i.e. $V(\mathscr K(H)) \simeq \N$, which means that $K_0\mathscr K(H) = \Z$. On the other hand, any two infinite rank projections in $\mathscr B(H)$ are equivalent, hence $V\mathscr B(H) \simeq \N \cup \{\infty\}$, which is a semi-group without the cancellation property. Since everyone is equivalent to $\infty$, it is obtained that $K_{00}\mathscr B(H) \simeq 0$. The semi-group $V(A)$ has the cancellation property if, and only if, the inclusion $V(A)\longhookrightarrow K_{00}(A)$ is injective. 
+\end{observacao}
+
+\begin{proposicao}[Standard portrait of \ensuremath{K_0}]
+Every element of $K_0(A)$ can be written as $[x+p_n]_0-[p_n]_0$ where $x\in \mathbb M_{2n}(A)$ and $p_n \coloneqq \diag(\Id_n, 0)$.
+
+\begin{proof}
+Let $p, q \in \mathbb M_{\infty}(\widetilde A)$ be some idempotent square matrices with order not larger than $n$, such that $\sub\ep0\left([p]_0 - [q]_0\right) = 0$, i.e. $[p]_0 - [q]_0 \in K_0(A)$. Matrices $p \in \mathbb M_n(\widetilde{A})$ can be written as $(\sub pA, \sub p{\C}) \in \mathbb M_n(A)\oplus \mathbb M_n(\C)$, i.e. an algebraic part $\sub pA$ and a scalar part $\sub p{\C}$. Stating that  $\sub\ep0\left([p]_0 - [q]_0\right) = 0$ means that the scalar parts of $p$ and $q$ coincide.
+
+The identity $\Id_n \in \mathbb M_\infty(\widetilde{A})$ can be seen as the projection operator of the first $n$-th coordinates, by filling it with 0's, but to avoid confusions, let it be denoted by $p_n$. With $y\leqslant x$ be given by $xy = yx = y$, one may see that $p \leqslant p_n$ and $q \leqslant p_n$. Notice that
+$\diag(0,p) \in \mathbb M_{2n}(\widetilde{A})$ is similar to $p$ and orthogonal to $\Id_n$, i.e. 
+\[
+\begin{pmatrix}
+    0 & 0 \\ 0 & p
+\end{pmatrix}
+\begin{pmatrix}
+    \Id_n & 0 \\ 0 & 0 
+\end{pmatrix} = 
+\begin{pmatrix}
+    \Id_n & 0 \\ 0 & 0 
+\end{pmatrix} \begin{pmatrix}
+    0 & 0 \\ 0 & p
+\end{pmatrix} = 0.
+    \] 
+Hence, the element $x \coloneqq \diag(-q,p)$ makes $x+p_n$ an idempotent and:
+\begin{equation*}
+    \begin{array}{rcl}
+        [x+p_n]_0 - [p_n]_0 &=& \left[\diag(0,p)\right]_0 + \left[p_n - q\right]_0 - \left(\left[p_n-q\right]_0 + \left[q\right]_0\right) \\
+        &=& \left[p\right]_0 - \left[q\right]_0.
+    \end{array} \hfill \qedhere
+\end{equation*}
+\end{proof}
+\end{proposicao}

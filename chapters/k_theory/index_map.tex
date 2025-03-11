@@ -1,0 +1,108 @@
+\section{The index map}
+
+Many important functorial properties like homotopy invariance, stability and half exactness are shared by $K_0$ and $K_1$, but in our needs, they will not be necessary. The reader may recall to \cite{blackadar1998k} or \cite{wegge1993k} to a proper course.
+
+We are now ready to define the so called index map. This name comes from the Fredholm operator theory since what we are about to construct is a generalization of the index of those operators. Consider $\mathscr B(H)$ the $C^*$-algebra of bounded operators between a Hilbert space $H$, and $\mathscr K(H)$ the ideal of compact operators. The \textit{Atkinson} theorem states precisely that the \textit{Calkin} algebra $\mathscr Q(H) \coloneqq \mathscr B(H)/\mathscr K(H)$ is a classifying one: $T$ is a Fredholm operator if, and only if, $(T \bmod \mathscr K(H)) \in \GL \mathscr Q(H)$.
+
+Since $K_0\mathscr K(H) = \Z$ and $K_1\mathscr Q(H)$ can be seen as the set of Fredholm operators up to homotopy\footnote{Remind that two Fredholm operators in the same realm have the same index if, and only if they are homotopic.}, the index map $\ind : K_1\mathscr Q(H) \longto K_0\mathscr K(H)$ is well defined. Our index map $\partial$ will generalize this map. 
+
+\begin{construcao}
+\label{contru: index map}
+    Let $I\triangleleft A$ and consider the following short exact sequence:
+    \begin{equation*}
+        \begin{tikzcd}
+            0 \ar[r] & I \arrow[r, hook] & A \arrow[r, two heads] & \mfrac AI \ar[r] & 0
+        \end{tikzcd}
+    \end{equation*}
+    We are in position to construct $\partial : K_1(A/I) \longto K_0(I)$. For $[x]_1 \in K_1(A/I)$, let $n$ be such that $x \in \GL_n(\widetilde{A/I})$. It's about time for the corollary \ref{corol:lift by surjection} to shine: Since the projection $A \longtwoheadrightarrow A/I$ is a continuous surjection, so it is the unitisation induced morphism between the algebras, hence, one can lift the element $\diag(x, \inv x) \in \GL_{2n}^{(0)}(\widetilde{A/I})$ to some $w \in \GL_{2n}^{(0)}(\widetilde A)$.
+    
+    If $\pi : \GL_\infty(\widetilde{A}) \longtwoheadrightarrow \GL_\infty(\widetilde{A/I})$ is the quotient projection, notice that $\pi(wp_n\inv w) = p_n$, so that $wp_n\inv w \in \widetilde{I}$. Since $wp_n \inv w$ is also an idempotent, notice that $[wp_n \inv w]_0 - [p_n]_0 \in K_0(I)$. And this is the image of the index map $\partial$ of some element $[x]_1$.
+\end{construcao}
+
+An anxious mind would immediately panic. We have a \textsc{to-do} list before calling the day:
+\begin{itroman}
+    \item\label{todo:(i)} Check that $[wp_n \inv w]_0 - [p_n]_0$ doesn't depend on the lift $w$ chosen;
+    \item\label{todo:(ii)} Check that $\partial([x]_1) = \partial([y]_1)$ for $x \equiv y$.
+    \item\label{todo:(iii)} Check that $\partial$ is a group morphism.   
+\end{itroman}
+\begin{proof}[Proof of \textsc{to-do} list items]
+    If $v$ is another lift of $\diag(x, \inv x)$, notice that 
+    $$
+    vp_n \inv v = (v\inv w)wp_n\inv w\inv{(v\inv w)},
+    $$
+    i.e. $vp_n \inv v$ is similar to $wp_n \inv w$. This is enough to take care of \ref{todo:(i)}.
+
+    In order to show that the index is well defined, suppose that $y \in \GL_n(\widetilde{A/I})$ is equivalent to $x$. Notice that 
+    $$
+    \inv xy \in \GL_n^{(0)}(\widetilde{A/I}) \e \begin{pmatrix} x & 0 \\ 0 & \Id_n\end{pmatrix}\begin{pmatrix} \Id_n & 0 \\ 0 & \inv y\end{pmatrix} \in \GL_{2n}^{(0)}(\widetilde{A/I})
+    $$
+    so by the corollary \ref{corol:lift by surjection} again, let $a \in \GL_n^{(0)}(\widetilde{A})$ and $b\in \GL_{2n}^{(0)}(\widetilde{A})$ be the lifts respectively. But then $u \coloneqq w \diag(a,b)$ is a lift of $\diag(y, \inv y)$. From the fact that $p_n$ commutes with $\diag(a,b)$, it is obtained that $up_n \inv u = wp_n \inv w$. Since we already showed that the choice of lift doesn't matter, \ref{todo:(ii)} is checked.
+    
+    For $x,y \in \GL_n(\widetilde{A/I})$, suppose that $w$ is a lift of $\diag(x,\inv x)$ and $v$ is a lift of $\diag(y,\inv y)$. Notice that $\varpi \coloneqq \diag(w,v)$ is a lift of $\diag(x,y, \inv{x},\inv y)$, hence 
+    \begin{equation*}
+    \begin{array}{rl}
+         \partial([x]_1[y]_1)= & \vspace{0.25cm}\left[ \varpi p_{2n}\inv\varpi\right]_0 - \left[p_{2n}\right]_0 
+        \\= \vspace{0.25cm}& \left[ \begin{pmatrix}
+            w & 0 \\ 0 & v
+        \end{pmatrix} \begin{pmatrix}
+            p_n & 0 \\ 0 & p_n
+        \end{pmatrix}
+        \inv{\begin{pmatrix}
+            w & 0 \\ 0 & v
+        \end{pmatrix}}
+        \right]_0 - \left[ \begin{pmatrix}
+            p_n & 0 \\ 0 & p_n
+        \end{pmatrix}\right]_0
+        \\= \vspace{0.25cm}&\left[\begin{pmatrix}
+            wp_n\inv w & 0 \\ 0 & vp_n\inv v
+        \end{pmatrix}\right]_0 - \left[\begin{pmatrix}
+            p_n & 0 \\ 0 & p_n
+        \end{pmatrix}\right]_0
+        \\= & [wp_n\inv w]_0-[p_n]_0 + [vp_n\inv v]_0-[p_n]_0 = \partial [x]_1 + \partial[y]_1
+    \end{array} 
+    \end{equation*}
+    Therefore, it is a group morphism as our final item \ref{todo:(iii)} assures. 
+\end{proof}
+
+\begin{definicao}[Index map in \ensuremath{K}-theory]
+    Using construction \ref{contru: index map}, the group morphism so called \textit{index} map is given by
+    \begin{equation*}
+        \function{{\partial}{K_1(A/I)}{K_0(I)}{[x]_1}{[wp_n\inv w]_0 - [p_n]_0}}
+    \end{equation*}
+    whenever $x\in \GL_n(\widetilde{A/I})$ and $w \in \GL_{2n}^{(0)}(\widetilde{A})$ is a lift of $\diag(x,\inv x)$.
+\end{definicao}
+
+\begin{exemplo}
+    In a unital $C^*$-algebra $A$, if a unitary idempotent element $u$ in $\GL_n(A/I)$ lifts to $v\in \mathbb M_n(A)$, the element
+    \begin{equation*}
+        w \coloneqq \begin{pmatrix}
+            v &  \Id_n - v^*v \\ \Id_n - vv^* & v^*
+        \end{pmatrix}
+    \end{equation*}
+    is a lift for $\diag(u, \inv u)$. Therefore:
+    \begin{eqnarray*}
+        \partial \left[u\right]_1 &=& \left[wp_n \inv w\right]_0 - \left[p_n\right]_0 \\
+        &=& \left[\left(\begin{smallmatrix}
+            v &  \Id_n - v^*v \\ \Id_n - vv^* & v^*
+        \end{smallmatrix}\right)
+        \left(\begin{smallmatrix}
+            \vphantom{\Id_n-v^*v}\Id_n & 0 \\ \vphantom{\Id_n-v^*v}0 & 0
+        \end{smallmatrix}
+        \right)\left(\begin{smallmatrix}
+            v^* &  \Id_n - vv^* \\ \Id_n - v^*v & v
+        \end{smallmatrix}\right)\right]_0 - \left[
+            \left(\begin{smallmatrix}
+                \vphantom{\Id_n-v^*v}\Id_n & 0 \\ \vphantom{\Id_n-v^*v}0 & 0
+            \end{smallmatrix}\right)\right]_0 \\
+            &=&  \left[\left(\begin{smallmatrix}
+                vv* &  0 \\
+                0 & \Id_n- vv^*
+            \end{smallmatrix}\right)\right]_0 - \left[
+                \left(\begin{smallmatrix}
+                    \vphantom{\Id_n-v^*v}\Id_n & 0 \\ \vphantom{\Id_n-v^*v}0 & 0
+                \end{smallmatrix}\right)\right]_0 \\
+            &=& \left[\Id_n - v^*v\right]_0 - \left[\Id_n-vv^*\right]_0
+    \end{eqnarray*}
+    Notice that when $A = \mathscr B(H)$ and $I = \mathscr K(H)$, we dealing again with Fredholm operators living in the Calkin algebra $\mathscr Q(H)$ and $\partial$ coincides with the Fredholm index, since $\Id_n - vv^*$ is a projection and
+	$$\partial \left[u\right]_1 = \rank\left(\Id_n - v^*v\right) - \rank\left(\Id_n-vv^*\right) = \dim \ker u - \dim \coker u.$$ 
+\end{exemplo}

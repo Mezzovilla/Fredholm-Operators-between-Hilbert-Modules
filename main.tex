@@ -1,0 +1,42 @@
+\RequirePackage{etex}
+\documentclass[11pt,a4paper,leqno]{book}
+\usepackage{tagging}
+% \usetag{BR}
+\input{structure/packages}
+\input{structure/macros}
+
+\title{\textsc{Fredholm Operators over Hilbert \ensuremath{C^*}-Modules}}
+\author{Gustavo P. Mezzovilla}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+	\thispagestyle{empty}
+	\includepdf{figures/capa-samya-v2.pdf}
+\end{titlepage}
+
+%\maketitle
+
+\input{chapters/agradecimentos.tex}
+
+\input{chapters/introduction.tex}
+
+\tableofcontents
+\thispagestyle{empty}
+
+
+\input{chapters/k_theory.tex}
+
+\input{chapters/hilbert_modules.tex}
+
+\input{chapters/fredholm.tex}
+
+\input{chapters/morita.tex}
+%\appendix
+
+%\input{chapters/appendix.tex}
+
+\bibliographystyle{plain}
+\bibliography{ref.bib}
+
+\end{document}
