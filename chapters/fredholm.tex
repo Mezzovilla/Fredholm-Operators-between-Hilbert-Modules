@@ -1,7 +1,7 @@
 \chapter{Fredholm Operators}
 \label{ch:fredholm operators}
 
-In regular Fredholm theory, one would define Fredholm operators as those with both kernel and cokernel were finite dimensional. Here, our concepts involving ``finiteness'' depends on a fixed $C^*$-algebra $A$, so, talking about dimension is kinda tricky. But classical Atikinson's theorem characterizes Fredholm operators in terms only of compactness, which we fully characterize in Theorem \ref{teo: M N quasi stably iso ==> rank igual}. That points towards a generalization. 
+In regular Fredholm theory, one would define Fredholm operators as those with both kernel and cokernel were finite dimensional. Here, our concepts involving ``finiteness'' depends on a fixed $C^*$-algebra $A$, so, talking about dimension is kinda tricky. But classical Atikinson's theorem characterizes such operators only in terms of compactness, which we fully characterize in Theorem \ref{teo: M N quasi stably iso ==> rank igual}. That points towards a generalization. 
 
 \begin{definicao}[$A$-Fredholm]
 \label{def:Fredholm operators}
@@ -133,7 +133,7 @@ Let $T \in \adj(E, F)$ be a $A$-Fredholm operator. If $T$ admits a pseudo-invers
 \item $\ker T$ and $\ker T^*$ are finite rank modules.
 \end{itroman}
 \begin{proof}
-Notice that $(ST)^2 = S(TST) = ST$ and similarly for $TS$, i.e. they are idempotents. It is easy to see that $\sub\Id E-ST$ also has the idempotent badge, $\Im(\sub \Id E - ST) = \ker T$ and $\Im TS = \Im T$.
+Notice that $(ST)^2 = S(TST) = ST$ and similarly for $TS$. It is easy to see that $\sub\Id E-ST$ also has the idempotent badge, $\Im(\sub \Id E - ST) = \ker T$ and $\Im TS = \Im T$.
 
 Is easy to see that $\sub \Id{\ker T} = (\sub \Id E - ST)\sub\restrita{\ker T}$. When supposing that $T$ is $A$-Fredholm, let $x,y \in E^n$ be such that $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$. Idempotent operators share their range with some projection by the remark \ref{obs: idempotente gerando inversivel}. Since $\sub\Id E - ST$ is an idempotent, there exists a self-adjoint idempotent operator $P$ such that $\Im(\sub\Id E - ST) = \Im P = \ker T$. Therefore, with $a= \Omega_{y}^{\,}\Omega_x^*$ and $p = P$, \ref{obs: idempotente gerando inversivel}.\ref{item: p eh uma projecao} guarantee that
 \begin{equation*}
@@ -376,7 +376,7 @@ Given an $A$-Fredholm $T\in \sub\adj{A}(E,F)$, the \textit{regularization of $T$
 
 \begin{proposicao}
 \label{prop: ruy 3.9}
-For any $A$-Fredholm operator $T$, despite the fact that the regularization $\widetilde T$ is an $\widetilde{A}$-Fredholm operator, the index of $\widetilde T$ lies in $K_0(A)$.
+For any $A$-Fredholm operator $T$, despite the fact that $\widetilde T$ is an $\widetilde{A}$-Fredholm operator, the index of $\widetilde T$ lies in $K_0(A)$.
 \begin{proof}
 Let $\ep: \widetilde{A} \longtwoheadrightarrow \C$ the complex projection. Since $K_0(A)$ is the kernel of $\sub\ep{0}$, we seek to obtain that $\sub\ep{0}(\ind \widetilde T) = 0$. We borrow notations and results from the proof of \ref{lema: construcao regularizacao}, i.e. $\sub \Id E-ST= \Omega_y^{\,}\Omega_x^*$ and 
 \begin{equation*}
@@ -427,34 +427,34 @@ Replacing if necessary each coordinate $\phi_i$ with $P\phi_i$ if necessary, we 
     \item \textbf{\mathbf{Q \coloneqq \Omega_{\psi}^* \Omega_{\phi}^{\,} \in \adj(\widetilde{A}^n)} is an idempotent operator}: Indeed:
     \begin{equation*}
         Q^2 \overset{P\Omega_\phi = \Omega_\phi}= (\Omega_{\psi}^*P\Omega_\phi^{\,})^2 =  \Omega_{\psi}^* P\underbrace{(\Omega_{\phi} \Omega_{\psi}^*)}_P P\Omega_{\phi} = \Omega_{\psi}^*\Omega_{\phi}^{\,} = Q.
- \end{equation*}
- Therefore, $Q$ is an idempotent operator in $\mathscr L(\widetilde{A}^n)$ which corresponds to left multiplication by the matrix $(\inner{\phi_i}{\psi_j})_{i,j}$, and $\Im Q \simeq \Im P$ as $\widetilde{A}$-modules.
+    \end{equation*}
+    I.e., $Q$ is an idempotent operator in $\mathscr L(\widetilde{A}^n)$ which corresponds to left multiplication by the matrix $(\inner{\phi_i}{\psi_j})_{i,j}$, and $\Im Q \simeq \Im P$ as $\widetilde{A}$-modules.
 
     \item \mathbf{\texttt{\textit{Tr}} \ep(Q) = n}: Let $(e_r)_{r}$ be the canonical basis of $\widetilde{A}^n$. We shall write the coordinates of $\phi$ and $\psi$ as: 
-\begin{equation*}
-        \phi_i = \zeta_i + a_i \e \psi_i = \xi_i + b_i
-\end{equation*}
-    for $\zeta_i, \xi_i \in F$ and $a_i, b_i \in \widetilde{A}^n$. Hence $\ep(\inner{\psi_i}{\phi_i}) = \ep(\inner{b_i}{a_i})$ which enables us to expand in the following way:
+        \begin{equation*}
+            \phi_i = \zeta_i + a_i \e \psi_i = \xi_i + b_i
+        \end{equation*}
+        for $\zeta_i, \xi_i \in F$ and $a_i, b_i \in \widetilde{A}^n$. Hence $\ep(\inner{\psi_i}{\phi_i}) = \ep(\inner{b_i}{a_i})$ which enables us to expand in the following way:
+        \begin{equation*}
+            \begin{array}{rcl}
+                \texttt{\textit{Tr}}\ep(Q) &=& \sum\limits_{i=1}^m \ep\left(\left\langle \psi_i, \phi_i\right\rangle\right) \\ &=& \sum\limits_{i=1}^m \ep\left(\left\langle b_i, a_i\right\rangle\right) \\
+            &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle b_i, e_r\right\rangle\left\langle e_r, a_i\right\rangle\right) \\
+            &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle e_r, a_i\left\langle b_i, e_r\right\rangle\right\rangle\right)\\
+            &=&\ep\left(\sum\limits_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle\right) 
+            \end{array}
+        \end{equation*}
+        Using the definition of $P$ in (\ref{eq: P = Id - wide T wide S}), the term $\sum_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle$ can be expressed as
+$$
+        \sum_{r=1}^n\left\langle e_r,(\sub\Id{B^n}-\Omega_x^* \Omega_y) e_r\right\rangle=n\cdot \sub 1A-\sum_{r=1}^n\left\langle x_r, y_r\right\rangle
+        $$
+        hence $\texttt{\textit{Tr}}\ep(Q) = n$.
+    \end{enumerate}
+    With all these steps, we conclude that 
     \begin{equation*}
-        \begin{array}{rcl}
-            \texttt{\textit{Tr}}\ep(Q) &=& \sum\limits_{i=1}^m \ep\left(\left\langle \psi_i, \phi_i\right\rangle\right) \\ &=& \sum\limits_{i=1}^m \ep\left(\left\langle b_i, a_i\right\rangle\right) \\
-        &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle b_i, e_r\right\rangle\left\langle e_r, a_i\right\rangle\right) \\
-        &=& \ep\left(\sum\limits_{i=1}^m \sum\limits_{r=1}^n\left\langle e_r, a_i\left\langle b_i, e_r\right\rangle\right\rangle\right)\\
-        &=&\ep\left(\sum\limits_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle\right) 
-        \end{array}
+        \rank(\ker \widetilde S) = \rank(\Im P) = \rank(\Im Q) = \texttt{\textit{Tr}}\ep(Q)\cdot \sub{1}{K_0(A)} = n\cdot \sub{1}{K_0(A)}
     \end{equation*}
-    Using the definition of $P$ in (\ref{eq: P = Id - wide T wide S}), the term $\sum_{r=1}^n\left\langle\left(0, e_r\right), P\left(0, e_r\right)\right\rangle$ can be expressed as
-$$
-\sum_{r=1}^n\left\langle e_r,(\sub\Id{B^n}-\Omega_x^* \Omega_y) e_r\right\rangle=n\cdot \sub 1A-\sum_{r=1}^n\left\langle x_r, y_r\right\rangle
-$$
-hence $\texttt{\textit{Tr}}\ep(Q) = n$.
-\end{enumerate}
-With all these steps, we conclude that 
-\begin{equation*}
-    \rank(\ker \widetilde S) = \rank(\Im P) = \rank(\Im Q) = \texttt{\textit{Tr}}\ep(Q)\cdot \sub{1}{K_0(A)} = n\cdot \sub{1}{K_0(A)}
-\end{equation*}
-and finally that $\sub\ep{0}(\ind \widetilde T) = 0$.
-\end{proof}
+    and finally that $\sub\ep{0}(\ind \widetilde T) = 0$.
+    \end{proof}
 \end{proposicao}
 
 The statement of \ref{prop: ruy 3.9} is meant to refer to the specific construction of $\widetilde{T}$ obtained in \ref{def: regularizacao de Fredholm}. But note that any regular Fredholm operator in $\sub\adj{{A}^u}(E \oplus {\widetilde{A}}^n, F \oplus {\widetilde{A}}^n)$, which has $T$ in the upper left corner, will differ from the $\widetilde{T}$ above, by an ${\widetilde{A}}$-compact operator. Therefore its index will coincide with that of $\widetilde{T}$ by \ref{lema: construcao regularizacao}, and so will be in $K_0(A)$ as well.
@@ -625,7 +625,7 @@ i.e. $\Im(\Id-\widetilde{T}\widetilde{S})$ is stably isomorphic to $\widetilde{A
 \end{equation*}
 As seen, $n$ can be increased without essentially changing $\widetilde{T}$. Therefore, there is no danger in assuming that $\Im(I-\widetilde{T}\widetilde{S}) \simeq \widetilde{A}^n$. 
 
-\item \textbf{There} \textbf{is} \textbf{a} \textbf{orthonormal} \textbf{generating set} \mathbf{\left((\zeta_i + a_i)\right)_{i\leq n} \subset \Im(I -\widetilde{T}\widetilde{S})} \textbf{such} \textbf{that} \mathbf{\ep((\sub a{1}, \ldots, a_n)) = \sub\Id{\mathbb M_n(\widetilde{A})}}: Let $\left(p_i\right)_{i\leq n} \subset \Im (I-\widetilde{T}\widetilde{S})$ with $p_i = (\zeta_i + a^{\,}_i) \in F\oplus \widetilde{A}^n$. The elements $p_i$ can be choosen so that they generate the module and $\inner{p_i}{p_j} =  \delta_{i,j}$, i.e. they are orthonormal. Since each $a^{\,}_i \in \widetilde{A}^n$, one can write $a^{\,}_i = (a^{\,}_{i,r})_{r \leq n}$. Hence, orthonormality can be written as:
+\item \textbf{There} \textbf{is} \textbf{a} \textbf{orthonormal} \textbf{generating set} \mathbf{\left((\zeta_i + a_i)\right)_{i\leq n} \subset \Im(I -\widetilde{T}\widetilde{S})} \textbf{such} \textbf{that} \mathbf{\ep((\sub a{1}, \ldots, a_n)) = I_{\mathbb M_n(\widetilde{A})}}: Let $\left(p_i\right)_{i\leq n} \subset \Im (I-\widetilde{T}\widetilde{S})$ with $p_i = (\zeta_i + a^{\,}_i) \in F\oplus \widetilde{A}^n$. The elements $p_i$ can be choosen so that they generate the module and $\inner{p_i}{p_j} =  \delta_{i,j}$, i.e. they are orthonormal. Since each $a^{\,}_i \in \widetilde{A}^n$, one can write $a^{\,}_i = (a^{\,}_{i,r})_{r \leq n}$. Hence, orthonormality can be written as:
 \begin{equation*}
     \begin{array}{rcl}
         \delta_{i,j} &=& \sub{\inner{p_i}{p_j}}{F\oplus \widetilde{A}^n} \\
@@ -634,7 +634,9 @@ As seen, $n$ can be increased without essentially changing $\widetilde{T}$. Ther
         &=& \sub{\inner{\zeta_i}{\zeta_j}}F + \sum\limits_{r=1}^n a^*_{i,r}a_{j,r}^{\,}
     \end{array}
 \end{equation*}
-The projected matrix $u \coloneqq \ep((a^{\,}_{i,r})_{i,r})$ is unitary, i.e. $uu^* = u^*u = \sub\Id{\mathbb M_n(\widetilde{A})}$. Whence, setting $q_{i} \coloneqq \sum_{j} u_{ij}^* p_j$, we obtain $q_i = \xi_i+ b_i$ in which $\ep(b_{i,j}) = \delta_{i,j}$, i.e. $\ep((\sub b1, \ldots, b_n)) = \sub\Id{\mathbb M_n(\widetilde{A})}$. At the end of the day, one can suppose that $(p_i)_{i\leq n}$ attends the required condition, otherwise, replace $p$ by $q$.
+The projected matrix $u \coloneqq \ep((a^{\,}_{i,r})_{i,r})$ is unitary, i.e. $uu^* = u^*u = \sub\Id{\mathbb M_n(\widetilde{A})}$. Whence, setting $q_{i} \coloneqq \sum_{j} u_{ij}^* p_j$, we obtain $q_i = \xi_i+ b_i$ in which $\ep(b_{i,j}) = \delta_{i,j}$, i.e.,
+    $$\ep((\sub b1, \ldots, b_n)) = I_{\mathbb M_n(\widetilde{A})}.$$ 
+    At the end of the day, one can suppose that $(p_i)_{i\leq n}$ attends the required condition, otherwise, replace $p$ by $q$.
 
 %\item \textbf{\mathbf{U \coloneqq \begin{inlinematrix}T & \Omega_{\zeta} \\ \Omega_x^* & \Omega_{a} \end{inlinematrix}} is invertible}: As in the proof of \ref{lema: construcao regularizacao}, we suppose that $\Id - ST = \Omega^{\,}_y\Omega_x^*$. By the features ensured about the elements $a=(\sub a1, \ldots, a_n)$, notice that $\Omega_a : \widetilde{A}^n \longto \Im (I-\widetilde{T}\widetilde{S})$ is an isomorphism.
 \end{itroman}
