@@ -3,67 +3,67 @@
 Time to extend our concepts to general Fredholm operators. A change in algebras will be necessary, so we write our next lemma with new a $C^*$-algebra notation.
 
 \begin{lema}
-\label{lema: construcao regularizacao}
-Let $B$ be a unital $C^*$-algebra and $T \in \sub\adj B(E,F)$ a $B$-Fredholm but not necessarily regular. There exists a natural $n$ and some $x\in E^n$ such that  \begin{equation*}
-    \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix}: E\oplus B^n \longto F\oplus B^n
-\end{equation*}
-is a regular $B$-Fredholm operator.
-\begin{proof}
-Let $S$ be a pseudo-inverse of $T$ such that both $\sub \Id E - ST$ and $\sub \Id F - TS$ are finite rank operators, and $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$ for some $y \in F^n$, $x \in E^n$. We will construct operators $\widetilde{T}$ and $\widetilde{S}$ that are regular Fredholm. Define the following operators:
-%<*RegularizacaoDeTeS>
-\begin{equation*}
-    \widetilde T \coloneqq \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix} \e
-    \widetilde S \coloneqq \begin{pmatrix} S & \Omega_y^{\,} \\ 0 & 0\end{pmatrix}.
-\end{equation*}
-%</RegularizacaoDeTeS>
-\begin{itroman}
-\item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are pseudo-inverses of each other, hence regular}: In what follows, we need the expressions: 
-\begin{alter}
-\item \label{lema: construcao regularizacao item 1}$T\Omega_y^{\,}\Omega_x^* = T(\sub \Id E - ST) = T - TST = 0$.
-\item \label{lema: construcao regularizacao item 2} $\Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) = \Omega_x^* (ST+\sub \Id E - ST) = \Omega_x^*$.
-\end{alter}
-Notice that
-\begin{equation*}
-    \begin{array}{rcl}
-        \widetilde T\widetilde S\widetilde T &=&  \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \begin{inlinematrix} S & \Omega_y^{\,} \\ 0 & 0\end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
-        &=& \vphantom{\displaystyle\int\limits_{\int}^\int} \begin{inlinematrix} TS & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y^{\,} \end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
-        &=& \begin{inlinematrix} 
-        TST + T\Omega_y^{\,}\Omega_x^* & 0\\ 
-        \Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) & 0 
-        \end{inlinematrix}  \overset{\ref{lema: construcao regularizacao item 1}+\ref{lema: construcao regularizacao item 2}}= \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} = \widetilde T
-    \end{array}
-\end{equation*}
+    \label{lema: construcao regularizacao}
+    Let $B$ be a unital $C^*$-algebra and $T \in \sub\adj B(E,F)$ a $B$-Fredholm but not necessarily regular. There exists a natural $n$ and some $x\in E^n$ such that  \begin{equation*}
+        \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix}: E\oplus B^n \longto F\oplus B^n
+    \end{equation*}
+    is a regular $B$-Fredholm operator.
+    \begin{proof}
+    Let $S$ be a pseudo-inverse of $T$ such that both $\sub \Id E - ST$ and $\sub \Id F - TS$ are finite rank operators, and $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$ for some $y \in F^n$, $x \in E^n$. We will construct operators $\widetilde{T}$ and $\widetilde{S}$ that are regular Fredholm. Define the following operators:
+    %<*RegularizacaoDeTeS>
+    \begin{equation*}
+        \widetilde T \coloneqq \begin{pmatrix} T & 0 \\ \Omega_x^* & 0 \end{pmatrix} \e
+        \widetilde S \coloneqq \begin{pmatrix} S & \Omega_y^{\,} \\ 0 & 0\end{pmatrix}.
+    \end{equation*}
+    %</RegularizacaoDeTeS>
+    \begin{itroman}
+        \item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are pseudo-inverses of each other, hence regular}: In what follows, we need the expressions: 
+        \begin{alter}
+        \item \label{lema: construcao regularizacao item 1}$T\Omega_y^{\,}\Omega_x^* = T(\sub \Id E - ST) = T - TST = 0$.
+        \item \label{lema: construcao regularizacao item 2} $\Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) = \Omega_x^* (ST+\sub \Id E - ST) = \Omega_x^*$.
+        \end{alter}
+        Notice that
+        \begin{equation*}
+            \begin{array}{rcl}
+                \widetilde T\widetilde S\widetilde T &=&  \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \begin{inlinematrix} S & \Omega_y^{\,} \\ 0 & 0\end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
+                &=& \vphantom{\displaystyle\int\limits_{\int}^\int} \begin{inlinematrix} TS & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y^{\,} \end{inlinematrix} \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} \\
+                &=& \begin{inlinematrix} 
+                TST + T\Omega_y^{\,}\Omega_x^* & 0\\ 
+                \Omega_x^*(ST + \Omega_y^{\,}\Omega_x^*) & 0 
+                \end{inlinematrix}  \overset{\ref{lema: construcao regularizacao item 1}+\ref{lema: construcao regularizacao item 2}}= \begin{inlinematrix} T & 0 \\ \Omega_x^* & 0 \end{inlinematrix} = \widetilde T
+            \end{array}
+        \end{equation*}
 
-Similarly, one can obtain that $\widetilde{S}\widetilde T\widetilde S = \widetilde S$, hence
-$\widetilde T$ and $\widetilde S$ are regular due to the fact that they are each others pseudo-inverses.
+        Similarly, one can obtain that $\widetilde{S}\widetilde T\widetilde S = \widetilde S$, hence
+        $\widetilde T$ and $\widetilde S$ are regular due to the fact that they are each others pseudo-inverses.
 
-\item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are Fredholm operators}: Notice that:
-\begin{equation}
-\label{eq: I_E(+)B^n - tilde(S)tilde(T)}
-    \begin{array}{c}
-        \sub \Id{E\oplus B^n} - \widetilde S\widetilde T = \begin{inlinematrix} 
-            \sub \Id E & 0 \\ 0 & \sub\Id{B^n} 
-        \end{inlinematrix} - 
-            \begin{inlinematrix} ST + \Omega_y^{\,}\Omega_x^* & 0 \\ 0 & 0\end{inlinematrix} = \begin{inlinematrix}
-    0 & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix}\\
-    \vspace{0.25cm} \\
-    \sub \Id{F\oplus B^n} - \widetilde T\widetilde S =  \begin{inlinematrix} \sub \Id F & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix} - \begin{inlinematrix} TS  & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y
-    \end{inlinematrix} 
-    =
-    \begin{inlinematrix}
-    \sub \Id F - TS & - T\Omega_y^{\,} \\ - \Omega_x^*S & \sub\Id{B^n}- \Omega_x^*\Omega_y^{\,}
-    \end{inlinematrix}
-    \end{array}
-\end{equation}
-Lets check that every entry in those matrices are compact:
-\begin{alter}
-\item \textbf{\mathbf{\sub\Id{E}} is finite rank}: Since $B$ is unital, $\sub \Id{B^n} = \Omega_{(\sub1E,\ldots,\sub1E)}^{\,}\Omega_{(\sub1E,\ldots,\sub1E)}^*$.
-\item \textbf{\mathbf{\sub\Id F - TS} is finite rank}: By assumption.
-\item \textbf{\mathbf{-\Omega_x^*S, -T\Omega_y} and \mathbf{\sub \Id{B^n}-\Omega_x^*\Omega_y^{\,}} are compact}: This is due to the fact that $\Omega_y$ and $\Omega_x^{*}$ are compact (proposition \ref{prop: Omega_x eh compacto}) and the set of compact operators is an ideal. 
-\end{alter}
-Therefore, $\sub \Id{E\oplus B^n} - \widetilde S\widetilde T$ and $\sub \Id{F\oplus B^n} - \widetilde T\widetilde S$ are compact operators. Finally, proposition \ref{prop: I-ST compacto ===>  T fredholm} guarantee that both $\widetilde T$ and $\widetilde S$ are regular Fredholm operators. \qedhere
-\end{itroman}
-\end{proof}
+        \item \textbf{\mathbf{\widetilde T} and \mathbf{\widetilde{S}} are Fredholm operators}: Notice that:
+        \begin{equation}
+        \label{eq: I_E(+)B^n - tilde(S)tilde(T)}
+            \begin{array}{c}
+                \sub \Id{E\oplus B^n} - \widetilde S\widetilde T = \begin{inlinematrix} 
+                    \sub \Id E & 0 \\ 0 & \sub\Id{B^n} 
+                \end{inlinematrix} - 
+                    \begin{inlinematrix} ST + \Omega_y^{\,}\Omega_x^* & 0 \\ 0 & 0\end{inlinematrix} = \begin{inlinematrix}
+            0 & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix}\\
+            \vspace{0.25cm} \\
+            \sub \Id{F\oplus B^n} - \widetilde T\widetilde S =  \begin{inlinematrix} \sub \Id F & 0 \\ 0 & \sub\Id{B^n} \end{inlinematrix} - \begin{inlinematrix} TS  & T\Omega_y^{\,} \\ \Omega_x^*S & \Omega_x^*\Omega_y
+            \end{inlinematrix} 
+            =
+            \begin{inlinematrix}
+            \sub \Id F - TS & - T\Omega_y^{\,} \\ - \Omega_x^*S & \sub\Id{B^n}- \Omega_x^*\Omega_y^{\,}
+            \end{inlinematrix}
+            \end{array}
+        \end{equation}
+        Lets check that every entry in those matrices are compact:
+        \begin{alter}
+            \item \textbf{\mathbf{\sub\Id{E}} is finite rank}: Since $B$ is unital, $\sub \Id{B^n} = \Omega_{(\sub1E,\ldots,\sub1E)}^{\,}\Omega_{(\sub1E,\ldots,\sub1E)}^*$.
+            \item \textbf{\mathbf{\sub\Id F - TS} is finite rank}: By assumption.
+            \item \textbf{\mathbf{-\Omega_x^*S, -T\Omega_y} and \mathbf{\sub \Id{B^n}-\Omega_x^*\Omega_y^{\,}} are compact}: This is due to the fact that $\Omega_y$ and $\Omega_x^{*}$ are compact (proposition \ref{prop: Omega_x eh compacto}) and the set of compact operators is an ideal. 
+        \end{alter}
+        Therefore, $\sub \Id{E\oplus B^n} - \widetilde S\widetilde T$ and $\sub \Id{F\oplus B^n} - \widetilde T\widetilde S$ are compact operators. Finally, proposition \ref{prop: I-ST compacto ===>  T fredholm} guarantee that both $\widetilde T$ and $\widetilde S$ are regular Fredholm operators. \qedhere
+    \end{itroman}
+    \end{proof}
 \end{lema}
 
 \begin{definicao}[Regularization of a Fredholm operator]
@@ -165,56 +165,60 @@ It is clear that all properties listed in \ref{prop: propriedades de fredholm} a
 As consequence of the Atikinson's theorem in the classical theory, one can obtain that the original index is locally constant. Since it is now our definition, we can extract the same proof.
 
 \begin{proposicao}
-Let $\mathscr Q(E,F)$ be the Calkin algebra and $\pi: \mathscr L(E,F) \longto \mathscr Q(E,F)$ be the quotient projection. The set of Fredholm operators $\mathscr F(E,F) \coloneqq \pi^{-1}\GL\mathscr Q(E,F) \subset \adj(E,F)$ is an open subset and $\ind : \mathscr F(E,F)\longto K_0(A)$ is locally constant.
-\begin{proof}
-The fact that $\mathscr F(E,F)$ is an open set follows from the continuity of $\pi$ on the the invertible elements of a unital $C^*$-algebra. To check the continuity of the index, let $T$ be a Fredholm operator and $S$ be one of its pseudo-inverses. If $R$ is a Fredholm operator in the open ball around $T$ of radius $\|S\|^{-1}$,
-\[
-\|TS - RS\| \leqslant \|T-R\|\|S\| \leqslant 1.
-\]
-Hence $\Id - (TS - RS)$ is a invertible Fredholm operator, which means that it has index 0. Notice that $(\Id - (TS - RS))T = RST$. Therefore:
-\begin{equation*}
-    \begin{array}{rcl}
-        \ind T &=& \ind((\Id - (TS - RS))T) \\
-        &=&\ind(RST) = \ind R+\ind S + \ind T
-    \end{array}
-\end{equation*}
-hence $\ind R = - \ind S$. Since $R$ was an arbitrary element of the open ball, it follows necessarily that $\ind {\restrita}_{{B}(T, {\|S\|^{-1}})}(R) = -\ind S$, i.e. the index is locally constant.
-\end{proof}
+    Let $\mathscr Q(E,F)$ be the Calkin algebra and $\pi: \mathscr L(E,F) \longto \mathscr Q(E,F)$ be the quotient projection. The set of Fredholm operators 
+    \begin{equation*}
+        \mathscr F(E,F) \coloneqq \pi^{-1}\GL\mathscr Q(E,F) \subset \adj(E,F)
+    \end{equation*}
+    is an open subset and $\ind : \mathscr F(E,F)\longto K_0(A)$ locally constant.
+    \begin{proof}
+    The fact that $\mathscr F(E,F)$ is an open set follows from the continuity of $\pi$ on the the invertible elements of a unital $C^*$-algebra. To check the continuity of the index, let $T$ be a Fredholm operator and $S$ be one of its pseudo-inverses. If $R$ is a Fredholm operator in the open ball around $T$ of radius $\|S\|^{-1}$,
+    \[
+    \|TS - RS\| \leqslant \|T-R\|\|S\| \leqslant 1.
+    \]
+    Hence $\Id - (TS - RS)$ is a invertible Fredholm operator, which means that it has index 0. Notice that $(\Id - (TS - RS))T = RST$. Therefore:
+    \begin{equation*}
+        \begin{array}{rcl}
+            \ind T &=& \ind((\Id - (TS - RS))T) \\
+            &=&\ind(RST) = \ind R+\ind S + \ind T
+        \end{array}
+    \end{equation*}
+    hence $\ind R = - \ind S$. Since $R$ was an arbitrary element of the open ball, it follows necessarily that $\ind {\restrita}_{{B}(T, {\|S\|^{-1}})}(R) = -\ind S$, i.e. the index is locally constant.
+    \end{proof}
 \end{proposicao}
 
 \begin{proposicao}
-Choose $A$-Fredholm operators $T_1$ and $T_2$ between the following Hilbert $A$-modules.
+Choose $A$-Fredholm operators $\sub{T}{1}$ and $\sub{T}{2}$ between the following Hilbert $A$-modules.
 \begin{equation*}
 \begin{tikzcd}
-E \arrow[r, "T_1"'] \arrow[rr, "T_2T_1", bend left] & F \arrow[r, "T_2"'] & G
+E \arrow[r, "\sub{T}{1}"'] \arrow[rr, "\sub{T}{2}\sub{T}{1}", bend left] & F \arrow[r, "\sub{T}{2}"'] & G
 \end{tikzcd}
 \end{equation*}
-Therefore, $T_2T_1$ is a Fredholm operator and $\ind(T_2T_1) = \ind T_1 + \ind T2$.
+Therefore, $\sub{T}{2}\sub{T}{1}$ is a Fredholm operator and $\ind(\sub{T}{2}\sub{T}{1}) = \ind \sub{T}{1} + \ind T2$.
 \begin{proof}
 
 Assume beforehand that $E=F=\HA$ and consider $H_t : \HA \oplus \HA \longto \HA \oplus \HA$ be a continuous path of Fredholm operators given by 
 \begin{equation*}
     H_t \coloneqq 
     \begin{inlinematrix}
-    T_1 & 0\\0 & \Id
+    \sub{T}{1} & 0\\0 & \Id
     \end{inlinematrix}
     \begin{inlinematrix}
     \cos(t) & -\sin(t)\\
     \sin(t) & \cos(t)
     \end{inlinematrix}
     \begin{inlinematrix}
-    \Id & 0\\0 & T_2
+    \Id & 0\\0 & \sub{T}{2}
     \end{inlinematrix}
     \begin{inlinematrix}
     \cos(t) & \sin(t)\\
     -\sin(t) & \cos(t)
     \end{inlinematrix}
 \end{equation*}
-for $t\in [0,\pi/2]$, which connects $T_1\oplus T_2$ to $T_2T_1\oplus \Id$. Therefore 
+for $t\in [0,\pi/2]$, which connects $\sub{T}{1}\oplus \sub{T}{2}$ to $\sub{T}{2}\sub{T}{1}\oplus \Id$. Therefore 
 \begin{equation*}
     \begin{array}{rcl}
-        \ind(T_2T_1) &=& \ind(H_{\pi/2}) = \ind(H_0) \\
-        &=& \ind(T_1 \oplus T_2) = \ind T_2 + \ind T_1.
+        \ind(\sub{T}{2}\sub{T}{1}) &=& \ind(H_{\pi/2}) = \ind(H_0) \\
+        &=& \ind(\sub{T}{1} \oplus \sub{T}{2}) = \ind \sub{T}{2} + \ind \sub{T}{1}.
     \end{array}
 \end{equation*}
 The general case follows by using the Kasparov stabilization theorem \ref{teo: kasparov stabilization}.  
