@@ -1,0 +1,81 @@
+
+\section[Fredholm Picture of \texorpdfstring{\ensuremath{K_0(A)}}{K0(A)}]{Fredholm Picture of \texorpdfstring{\mathbf{K_0(A)}}{K0(A)}}
+
+We already saw that every element of $K_0(A)$ is the index of some Fredholm operator.
+
+In order to avoid any set-theoretical problems, choose $\omega$ to be one of your favorite cardinal numbers, as long as it is greater than the cardinality of each and every $A^n$ for every integer $n$. Denote by $F_0(A)$ the family of all $A$-Fredholm operators whose domain and codomain are Hilbert modules with cardinality no larger than $\omega$. With the addition given by the direct sum, this is a unital, abelian semi-group. We will introduce a equivalence relation in $F_0(A)$, by characterizing whenever two operators $T_1$ and $T_2$ contains the same index.
+
+Notice that whenever $T \oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator, one can conclude by \ref{teo: diferenca compacta, indices simetricos} that $\ind T = 0$. This is a good indicator for an equivalence relation:
+
+\begin{proposicao}
+    \label{prop:ind(T)=0 --> T(+)Id eh perturbacao compacta de invertivel}
+Let $T\in \adj(E,F)$ be Fredholm operator with $\ind T = 0$. Therefore, there exists some integer $n$ such that $T\oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator.
+
+\begin{proof}
+Let $\widetilde{T}$ be the regularization of $T$ and, as always, there is an integer $n$ and a operator $S$ such that $\Id-\widetilde{S}\widetilde{T} = 0 \oplus \sub\Id{\widetilde{A}^n}$ described in the proof of Lemma \ref{lema: construcao regularizacao} (\ref{eq: I_E(+)B^n - tilde(S)tilde(T)}). 
+
+\begin{itroman}
+    \item \textbf{There exists \mathbf{n} such that \mathbf{\Im (I-\widetilde{T}\widetilde{S})\cong \widetilde{A}^n}}: The hypothesis of null index is equivalent to $\rank \Im(\Id-\widetilde{S}\widetilde{T}) = \rank \Im(\Id-\widetilde{T}\widetilde{S})$, hence
+    \begin{equation*}
+        \rank \Im(\Id-\widetilde{T}\widetilde{S}) = \rank \Im (0\oplus \sub{\Id}{\widetilde{A}^n}) = n \cdot \sub{1}{K_0(A)}
+    \end{equation*}
+    i.e. $\Im(\Id-\widetilde{T}\widetilde{S})$ is stably isomorphic to $\widetilde{A}^n$ as $\widetilde{A}$-modules, meaning that for some integer $r$, $\Im(\Id-\widetilde{T}\widetilde{S}) \oplus \widetilde{A}^r \simeq \widetilde{A}^{n+r}$. Remember that $\Omega_x^* =  \left(\inner{x_i}{\come}\right)_{i\leq n}$, hence, for $0 \in E^m$, $\Omega_{(x,0)}^*(\come) = (\Omega_x^*(\come), 0)$ and the regularization $\widetilde{T}$ can be updated to
+    \begin{equation*}
+        \widetilde{T} = \begin{pmatrix}
+        (T,0) & 0 \\ \Omega_{(x,0)}^* & 0 
+        \end{pmatrix}
+    \end{equation*}
+    As seen, $n$ can be increased without essentially changing $\widetilde{T}$. Therefore, there is no danger in assuming that $\Im(I-\widetilde{T}\widetilde{S}) \simeq \widetilde{A}^n$. 
+
+    \item \textbf{There} \textbf{is} \textbf{a} \textbf{orthonormal} \textbf{generating set} \mathbf{\left((\zeta_i + a_i)\right)_{i\leq n} \subset \Im(I -\widetilde{T}\widetilde{S})} \textbf{such} \textbf{that} \mathbf{\ep((\sub a{1}, \ldots, a_n)) = I_{\mathbb M_n(\widetilde{A})}}: Let $\left(p_i\right)_{i\leq n} \subset \Im (I-\widetilde{T}\widetilde{S})$ with $p_i = (\zeta_i + a^{\,}_i) \in F\oplus \widetilde{A}^n$. The elements $p_i$ can be choosen so that they generate the module and $\inner{p_i}{p_j} =  \delta_{i,j}$, i.e. they are orthonormal. Since each $a^{\,}_i \in \widetilde{A}^n$, one can write $a^{\,}_i = (a^{\,}_{i,r})_{r \leq n}$. Hence, orthonormality can be written as:
+    \begin{equation*}
+        \begin{array}{rcl}
+            \delta_{i,j} &=& \sub{\inner{p_i}{p_j}}{F\oplus \widetilde{A}^n} \\
+            &=& \vphantom{\sum\limits^n} \sub{\inner{\zeta_i}{\zeta_j}}F + \sub{\inner{a^{\,}_i}{a^{\,}_j}}{\widetilde{A}^n} \\
+            &=& \sub{\inner{\zeta_i}{\zeta_j}}F + \sum\limits_{r=1}^n\sub{\inner{a^{\,}_{i,r}}{a^{\,}_{j,r}}}{\widetilde{A}} \\
+            &=& \sub{\inner{\zeta_i}{\zeta_j}}F + \sum\limits_{r=1}^n a^*_{i,r}a_{j,r}^{\,}
+        \end{array}
+    \end{equation*}
+    The projected matrix $u \coloneqq \ep((a^{\,}_{i,r})_{i,r})$ is unitary, i.e. $uu^* = u^*u = \sub\Id{\mathbb M_n(\widetilde{A})}$. Whence, setting $q_{i} \coloneqq \sum_{j} u_{ij}^* p_j$, we obtain $q_i = \xi_i+ b_i$ in which $\ep(b_{i,j}) = \delta_{i,j}$, i.e.,
+        $$\ep((\sub b1, \ldots, b_n)) = I_{\mathbb M_n(\widetilde{A})}.$$ 
+        At the end of the day, one can suppose that $(p_i)_{i\leq n}$ attends the required condition, otherwise, replace $p$ by $q$.
+
+    %\item \textbf{\mathbf{U \coloneqq \begin{inlinematrix}T & \Omega_{\zeta} \\ \Omega_x^* & \Omega_{a} \end{inlinematrix}} is invertible}: As in the proof of \ref{lema: construcao regularizacao}, we suppose that $\Id - ST = \Omega^{\,}_y\Omega_x^*$. By the features ensured about the elements $a=(\sub a1, \ldots, a_n)$, notice that $\Omega_a : \widetilde{A}^n \longto \Im (I-\widetilde{T}\widetilde{S})$ is an isomorphism.
+\end{itroman}
+With this simplifications, we have in hands the following isomorphism:
+\begin{equation*}
+    \function{{U}{E\oplus \widetilde{A}^n}{F\oplus \widetilde{A}^n}{\xi + b}{\begin{inlinematrix}T & \Omega_{\zeta} \\ \Omega_x^* & \Omega_{a} \end{inlinematrix}\begin{inlinematrix} \xi \\ b \end{inlinematrix}}}
+\end{equation*}
+since $\Omega_\zeta \oplus \Omega_a$ is an explicit isomophism between $\Im(\Id - \widetilde{T}\widetilde{S})$ and $\widetilde{A}^n$. Notice that $\con{(E\oplus \widetilde{A}^n)\cdot A} = A^n$ for any Hilbert $A$-module $E$. Thus, $U$ can be restricted to an element in $\GL \adj(E\oplus A^n, F\oplus A^n)$. With this in mind, notice that the difference operator
+\begin{equation*}
+    U - T \oplus \sub{\Id}{A^n} = \begin{pmatrix}
+        0 & \Omega_\zeta \\ \Omega_x^* &  ((a_{ij}- \delta_{ij}))_{i,j}
+    \end{pmatrix}
+\end{equation*}
+is compact, since the right lower entry $((a_{ij}- \delta_{ij}))_{i,j}$ is compact. But this matrix was seen to be in $\mathbb M_n(A)$, since its projection by $\ep$ is zero.  
+\end{proof}
+\end{proposicao}
+
+As consequence, proposition \ref{prop:ind(T)=0 --> T(+)Id eh perturbacao compacta de invertivel} immediately characterizes whenever two Fredholm operators between different Hilbert modules have the same index.
+
+\begin{corolario}
+Whenever two Fredholm operators $T_i\in \adj(E_i,F_i)$ ($i\in \{1,2\}$) share the same index $\ind T_1 = \ind T_2$, there exists a integer $n$ such that 
+$$
+T_1 \oplus T_2^* \oplus \sub\Id{A^n} : E_1 \oplus F_2 \oplus A^n \longto E_2\oplus F_1 \oplus A^n
+$$ 
+is a $A$-compact perturbation of an invertible operator.
+\end{corolario}
+
+Declare two operators in $T_1, T_2 \in F_0(A)$ to be equivalent whenever $T_1 \oplus T_2^* \oplus \sub\Id{A^n}$ is a compact perturbation of an invertible operator, i.e. $\ind T_1 = \ind T_2$. Denote $F(A)$ to be the induced set of equivalence classes, which is an abelian group when equipped with the direct sum operation $\oplus$, where $(\come)^{-1}: T \longmapsto T^*$. 
+
+It is about time to consider the index map between $F(A)$ and $K_0(A)$, since \ref{prop: indice sobrejetivo} already shows that it is a surjective map, and the equivalence relation ensures the injectivity. More over, since $[\diag(x,y)]_0 = [x]_0+[y]_0$ in $K_0(A)$, we had produced the following Atiyah-Jänich analogue:
+
+\begin{corolario}\label{corol:atiyah-janich}
+The index map 
+$$
+\ind : F(A) \longto K_0(A)
+$$ 
+is a group isomorphism.
+\end{corolario}
+
+%Not only analogue, equivalent: Let $K^0(X)$ be the $K$-group of a compact Hausdorff space $X\in \CHaus$, in the realm of topological $K$-theory.

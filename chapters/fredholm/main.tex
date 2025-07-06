@@ -1,0 +1,96 @@
+\chapter{Fredholm Operators}
+\label{ch:fredholm operators}
+
+In regular Fredholm theory, one would define Fredholm operators as those with both kernel and cokernel were finite dimensional. Here, our concepts involving ``finiteness'' depends on a fixed $C^*$-algebra $A$, so, talking about dimension is kinda tricky. But classical Atikinson's theorem characterizes such operators only in terms of compactness, which we fully characterize in Theorem \ref{teo: M N quasi stably iso ==> rank igual}. That points towards a generalization. 
+
+\begin{definicao}[$A$-Fredholm]
+\label{def:Fredholm operators}
+A given $T\in \adj(E,F)$ is said to be $A$-Fredholm if it is invertible modulo $\operatorname{FR}(E,F)$, i.e. exists $S \in \adj(F,E)$ such that both $\sub\Id E - ST$ and $\sub\Id F - TS$ are $A$-finite rank operators.
+\end{definicao}
+
+If adjointable operators $S$, $S'$ and $T$ are such that both $TS$ and $S'T$ are Fredholm, one can obtain operators $R$ and $R'$ such that $\Id - T(SR)$ and $\Id - (R'S')T$ are finite-rank ones. Hence $T$ is Fredholm. 
+
+\begin{proposicao}\label{prop: I-ST compacto ===>  T fredholm}
+    If $T$ is invertible modulo $\mathscr K(E,F)$, then it is $A$-Fredholm. Hence, definition \ref{def:Fredholm operators} really fits the sentence ``Atikinson's trivialization''.
+
+    \begin{proof}
+    Let us digress a little bit:
+    \vspace{-0.7cm}
+    \begin{quote}
+        \begin{observacao}
+        Let $J \triangleleft A$ be a non-closed ideal of a unital $C^*$-algebra, and suppose that $a\in A$ is invertible modulo $\con J$ (the topological closure), i.e. there exists $b \in A$ such that $(1-ab)\in \con J$. Therefore, there exists a sequence $(j_n)_n \subset J$ such that $j_n \to (1-ab)$, which means that at least one of then, say $j$, obeys $\|1-ab - j\| < 1$. Since $ab+j = 1 - (1-ab-j)$, $ab+j$ is invertible\footnote{Notice that $(\lambda - a) \in \GL(A)$ whenever $\|a\|<|\lambda|$.}. Therefore, some algebraic manipulation shows that
+        \begin{equation*}
+            a\underbrace{b(ab+j)^{-1}}_{\sub x1}- 1 = -j(ab+j)^{-1} \in J
+        \end{equation*}
+        i.e. $a$ is right invertible modulo $J$. But since $b$ also ensure that $(1-ba) \in \con J$, hence it exist $\sub x2$ such that $(\sub x2a-1) \in J$. Notice that
+        \begin{equation*}
+            \sub x2(a\sub x1 - 1) = \big((\sub x2a)\sub x1 - \sub x2\big) = (\sub x1 - \sub x2) \in J,
+        \end{equation*}
+        i.e. $[\sub x1] = [\sub x2]$ in the quotient algebra $A/J$. Therefore, there is a representative of the class of $\sub x1$ and $\sub x2$, say $x$, such that both $1-ax$ and $1-xa$ belong to $J$, i.e. $a$ is invertible modulo $J$.
+        \end{observacao}
+    \end{quote}
+    With this digression in mind, notice that if $(\sub\Id E - TS) \in \mathscr K(E,F)$, there exist an element $R$ such that both $\sub\Id E - TR$ and $\sub\Id F-RT$ are finite-rank operators, i.e. $T$ is Fredholm.
+    \end{proof}
+\end{proposicao}
+
+
+\begin{observacao}
+Let $H$ and $W$ be complex Hilbert spaces. The set of classical Fredholm operators coincide with the $\C$-Fredholm ones. 
+\end{observacao}
+
+\begin{exemplo}[\cite{239982}]
+    \label{exemplo: familia continua de operadores}
+    Let $X \in \CHaus$ and $\mathscr F(\ell^2(\N))$ the set of $\C$-Fredholm classical operators over the separable Hilbert space $\ell^2(\N)$. We avoid writing $\ell^2(\mathbb N)$ everywhere, so $\mathscr B$, $\mathscr K$ and $\mathscr F$ will respectively denote the bounded, compact and Fredholm operators over $\ell^2(\N)$.
+
+    For any continuous family of operators\footnote{For example, $T: [0,1] \longto \mathscr F$, $T_x(\xi) \coloneqq (x\xi_n)_n$.} $T: X \longto \mathscr B$, it is possible to see $T$ as a $C(X)$-endomorphism over the standard Hilbert $C(X)$-module $\sub{\mathscr H}{C(X)}$:
+    \begin{equation*}
+        \function{{\widehat T}{\sub{\mathscr H}{C(X)}}{\sub{\mathscr H}{C(X)}}{\xi}{(x\mapsto T_x\xi(x))}}
+    \end{equation*}
+    Each $T_x\coloneqq T(x)$ is a classical operator in a Hilbert space, so $T^* \in C(X,\mathscr B)$. Hence $\widehat T$ is adjointable. In order to show that continuous families of Fredholm operators extent to $C(X)$-Fredholm ones, we need the following claim:
+    \begin{itroman}
+        \item \label{claim: hat T is C(X)-compact for T in C(X,K)} \textbf{\mathbf{\widehat T} is \mathbf{C(X)}-compact whenever \mathbf{\Im T \subset \mathscr K}}:
+        Let $\ep>0$ and $T \in C(X, \mathscr K)$. For each $x \in X$, pick a finite rank operator $R_x$ so that $\| R_x-T_x\| \leq \ep /3$, and pick a neighborhood $U_x$ such that $\| T_x-T_y\| \leq \ep/3$ for $y \in U_x$. Since $X$ is compact, extract a finite subcover $\sub U1 , \ldots, U_n$ of $(U_x)_{x \in X}$, and a partition of unity $\sub\lambda1, \ldots, \lambda_n$. Then 
+    $$\| T_x- \sum_{i=1}^n \lambda_j (x) R_{x_j} \|  \leq \ep.$$
+    Therefore, is a finite rank the operator $\sum_{i} \lambda_i (\come) R_{x_i}$ and, $\widehat T$ is compact.
+    \end{itroman}
+
+
+    Suppose that the range of $T$ is constituted only by Fredholm operators, which we will denote by $\mathscr F$. In order to see the extension of $T$ to the standard Hilbert $C(X)$-module, $\widehat T \in \adj(\sub{\mathscr H}{C(X)})$ is a $C(X)$-Fredholm operator, we must conjure the following:
+    \begin{quote}
+        \begin{invocacao}[Classical Bartle-Graves theorem - Corollary 17.67 \cite{aliprantisinfinite}]
+        \label{teo: bartle graves}
+        Every surjective continuous linear operator between Banach spaces\footnote{More generally, completely metrizable locally convex spaces, i.e. Fréchet spaces.} admits continuous right inverse, but not necessarily a linear one.
+        \end{invocacao}
+    \end{quote}
+    Bartle-Graves theorem has significant improvements and different versions (e.g., \cite{dontchev2020bartle}), but for our needs, we are fine with the above. 
+
+    Consider the Calkin algebra given by the quotient of compact operators: $\mathscr Q \coloneqq {\mathscr B}/{\mathscr K}$
+    and $\pi$ be the quotient map. Bartle-Graves theorem offers a continuous section $\sigma : \mathscr Q \longto \mathscr B$ such that $\pi \sigma A = A$. Let $S$ be given by the composition: 
+    \begin{equation*}
+    \begin{tikzcd}
+    X \arrow[d, "T"'] \arrow[rrr, dashed, "S"]      &   &  & \mathscr F \\
+    \mathscr F \arrow[r, "\pi"', two heads] & \operatorname{GL}\mathscr Q \arrow[rr, "(\come)^{-1}"'] &  & \operatorname{GL}\mathscr Q \arrow[u, "\sigma"']
+    \end{tikzcd}
+    \end{equation*}
+    Since $T_x\in \mathscr F$ if and only if $\pi(T_x)$ is invertible in $\mathscr Q$ (by Atikinson's theorem), $S$ is well defined and continuous (each arrow above is), hence defines a endomorphism $\widehat S$ in $\sub{\mathscr H}{C(X)}$. We are left to show that both $\Id - \widehat S\widehat T$ and $\Id - \widehat T\widehat S$ are $C(X)$-compact operators in $\sub{\mathscr H}{C(X)}$.
+
+    Since $\sub1{C(X)} - T\cdot S$ and $\sub1{C(X)}-S\cdot T$ are continuous families with compact range, $\widehat T$ is indeed $C(X)$-Fredholm by \ref{claim: hat T is C(X)-compact for T in C(X,K)}.
+\end{exemplo}
+
+In the classical Fredhom theory between Hilbert spaces, one only requires that $\ker T$ and $\coker T$ are finite dimensional. Those assumptions are sufficient to guarantee that every classical Fredholm operator has closed range, hence orthogonal decompositions are abundant in the proofs. Unfortunately, our definition allow non topologically closed ranges.
+
+%Only if we could extend it so naturally, maybe we wouldn't be here with a slightly different definition.
+
+\begin{exemplo}[Non closed range $A$-Fredholm operator]
+    $C[0,1]$ is a unital $C^*$-algebra, that we shall consider as a Hilbert $C^*$-module. Choose $T$ to be
+    \begin{equation*}
+        \function{T{C[0,1]}{C[0,1]}{f}{(x \mapsto xf(x))}}
+    \end{equation*}
+    Since the algebra is unital, any adjointable operator is $C[0,1]$-compact: $\mathscr L(C[0,1]) \simeq \mathscr K(C[0,1])$ (for instance, see Example \ref{exemplos: K( . )}\ref{exemplo item: K(A)=L(A) pra A unital}), hence must be $C[0,1]$-Fredholm as well. Unfortunately, the square root $\sqrt{\come}$ doesn't belong to the range of $T$, but it can be approximated by the Bernstein polynomials $B_n(x) \coloneqq \sum_{k\leqslant n} \binom nk \sqrt{k/n} \,x^k(1-x)^{n-k}$. 
+\end{exemplo}
+
+Therefore, in order to develop the theory of Fredholm operator between Hilbert modules and, in some extent, try to obtain a correspondence with the classical theory, we shall dodge the closure condition. Hence, we will focus on a smaller class of operators: those which admit pseudo-inverse, henceforth, the \textit{regular} ones. Later, we shall extent our results to general Fredholm operators, showing that each and everyone is, in some extent, regularizable.
+
+\input{chapters/fredholm/regular.tex}
+\input{chapters/fredholm/regularization.tex}
+\input{chapters/fredholm/picture.tex}

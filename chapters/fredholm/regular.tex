@@ -1,0 +1,213 @@
+
+\section{Regular Fredholm operators}
+\label{sec: regular fredholm}
+
+\begin{definicao}[Regular operators]
+It is said to be \textit{regular} any operator $T\in \adj(E,F)$ that admits a \textit{pseudo-inverse}, i.e. there exists $S\in \adj(F,E)$ such that $TST=T$ and $STS=S$. 
+\end{definicao}
+
+\begin{exemplo}
+    The operators $F$ and $G$ constructed in the proof of Theorem \ref{teo: M N quasi stably iso ==> rank igual} are regular Fredholm operators which are pseudo-inverses of each other: $FGF=F$ and $GFG=G$.
+\end{exemplo}
+
+For a regular Fredholm operator $T$, such a pseudo-inverse $S$ fits the Fredholm criteria of $T$: If $S'$ is such that $\sub\Id E - S'T$ and $\sub\Id F - TS'$ are finite-rank operators,
+\begin{equation*}
+    \begin{array}{rcl}
+        (\sub \Id E - S'T)(\sub \Id E - ST) &=&  (\sub\Id E - S'T) - (\sub \Id E - S'T)ST \\
+        &=& \sub \Id E - S'T- ST + \underbrace{S'TST}_{S'T}  \\
+        &=& \sub \Id E - ST
+    \end{array}
+\end{equation*}
+Since $\operatorname{FR}(E,F)$ is an ideal, the above manipulation shows that $\sub\Id E - ST$ is indeed a finite-rank operator (and similarly for $\sub\Id F - TS$).
+
+\begin{observacao}
+\label{exemplo: todo operador em esp hilb tem imagem fechada sse tem pseudo-inversa}
+When $S$ is such that $TS$ and $ST$ are idempotents, it is called a \textit{Moore-Penrose} inverse. To motivate the study of regular Fredholm operators as some way to deal with a weaker version of "the range is closed", we exhibit the following theorem:
+\begin{quote}
+    \textbf{Theorem}. For a Hilbert space $H$, a bounded operator $T\in \mathscr B(H)$ admits a Moore-Penrose pseudo-inverse $S$ if, and only if, $\Im T$ is closed.
+\end{quote}
+One way is pretty simple to prove: If there exists a Moore-Penrose pseudo-inverse $S$, $\Im T = \Im TS$. Since $TS$ is a orthogonal projection by hypothesis, $\Im T$ is closed. 
+
+Conversely, consider the following decompositions 
+\begin{equation*}
+    H = \ker T \oplus \Im T^* = \ker T^* \oplus \Im T.
+\end{equation*}
+Therefore, $T\sub\restrita{\Im T^*}$ is an injective bounded operator, with a bounded inverse $S$. Similarly, $T^*\sub\restrita{\Im T}$ admits a bounded inverse $R$. Those inverses can be extended to all the space, by setting it to zero outside their original domains (which is fine, since the kernels are all there is left in each case). One can verify that $R=S^*$ and that $S$ induces a Moore-Penrose inverse.
+\end{observacao}
+
+
+\begin{proposicao}\label{prop: T fredholm --> ker T e ker T* rank finito}
+Let $T \in \adj(E, F)$ be a $A$-Fredholm operator. If $T$ admits a pseudo-inverse $S$, then: 
+\begin{itroman}
+\item $\sub \Id E - ST$ and $TS$ are idempotents with ranges $\ker T$ and $\Im T$. 
+\item $\ker T$ and $\ker T^*$ are finite rank modules.
+\end{itroman}
+\begin{proof}
+Notice that $(ST)^2 = S(TST) = ST$ and similarly for $TS$. It is easy to see that $\sub\Id E-ST$ also has the idempotent badge, $\Im(\sub \Id E - ST) = \ker T$ and $\Im TS = \Im T$.
+
+Is easy to see that $\sub \Id{\ker T} = (\sub \Id E - ST)\sub\restrita{\ker T}$. When supposing that $T$ is $A$-Fredholm, let $x,y \in E^n$ be such that $\sub \Id E - ST = \Omega_{y}^{\,}\Omega_x^*$. Idempotent operators share their range with some projection by the remark \ref{obs: idempotente gerando inversivel}. Since $\sub\Id E - ST$ is an idempotent, there exists a self-adjoint idempotent operator $P$ such that $\Im(\sub\Id E - ST) = \Im P = \ker T$. Therefore, with $a= \Omega_{y}^{\,}\Omega_x^*$ and $p = P$, \ref{obs: idempotente gerando inversivel}.\ref{item: p eh uma projecao} guarantee that
+\begin{equation*}
+    \Omega_{y}^{\,}\Omega_x^* \sub{\restrita}{\ker T} = P\Omega_{y}^{\,}\Omega_x^*P \overset{P^*=P}= \Omega_{Py}^{\,} \Omega_{Px}^*.
+\end{equation*}
+Since $Py, Px \in (\ker T)^n$, it follows that $\sub\Id{\ker T} = \Omega_{Py}^{\,} \Omega_{Px}^*$ is a finite-rank operator over $\ker T$, i.e. $\ker T$ is a finite-rank module. Very much the same is sufficient to obtain that $\ker T^*$ also is a finite-rank module.
+\end{proof}
+\end{proposicao}
+%https://pages.uoregon.edu/alonsod/Talks/Fredholm%20Operators.pdf
+
+The rank of a finite rank module is well defined as seen before. Hence, the above proposition enable us to define the Index of regular Fredholm operators.
+
+\begin{definicao}
+If $T$ is a regular $A$-Fredholm operator, set their \textit{index} to be the $K_0(A)$ element given by
+\[
+\ind T \coloneqq \rank(\ker T) - \rank(\ker T^*).
+\]
+\end{definicao}
+
+\begin{proposicao}
+\label{prop: propriedades de fredholm}
+If $T\in \adj(E,F)$ is a regular Fredholm operator, then:
+\begin{itroman}
+\item $\ind T^* = -\ind T$.
+\item \label{prop item: propriedades de fredholm} For any pseudo-inverse $S$, $\rank(\ker T^*) = \rank(\ker S)$ and $\ind S = - \ind T$.
+\item \label{prop item: invertivel tem ind = 0} If there are invertible operators $U$ and $V$ between Hilbert modules such that the following diagram commutes, then $VTU$ is Fredholm and $\ind(VTU) = \ind T$.
+\begin{equation*}
+\begin{tikzcd}
+X \arrow[r, "U"', "\simeq"] \arrow[rrr, "VTU", bend left] & E \arrow[r, "T"'] & F \arrow[r, "V"', "\simeq"] & Y
+\end{tikzcd}
+\end{equation*}
+\item \label{prop item: ind(T (+) F) = ind T + ind F} If $T_i\in \adj(E_i,F_i)$ is a regular Fredholm operator for $i\in \{1,2\}$, the direct sum $T_1\oplus T_2$ is also regular Fredholm and $\ind(T_1\oplus T_2) = \ind T_1  + \ind T_2$.
+\end{itroman}
+\begin{proof}$\left.\right.$
+\begin{itroman}
+\item Clear.
+\item Since $S$ and $T^*$ are Fredholm operators, $\ker T^*$ and $\ker S$ are finite rank modules (\ref{prop: T fredholm --> ker T e ker T* rank finito}). In what comes next, keep in mind that $(\Im T)^{\perp} = \ker T^*$. Visiting again the remark \ref{obs: idempotente gerando inversivel}, one can conclude that for any idempotent $Q : F \longto E$, $F = \Im Q \oplus (\Im Q)^{\perp}$. Since $TS$ is an idempotent, we obtain the following diagram of equality:
+\begin{equation*}
+\begin{tikzcd}
+\Im(\sub\Id F-TS)\oplus \Im TS \arrow[d, equal] & F \arrow[l, equal] \arrow[r, equal, "\ref{obs: idempotente gerando inversivel}"] & (\Im TS)^{\perp} \oplus\Im TS \arrow[d, "(\Im TS)^{\perp} = (\Im T)^{\perp} = \ker T^*", equal] \\
+\ker S \oplus \Im TS    &  & \ker T^* \oplus \Im TS                                                            
+\end{tikzcd}
+\end{equation*}
+Therefore, $\ker S$ and $\ker T^*$ are quasi-stably-isomorphic. Therefore, \ref{teo: M N quasi stably iso ==> rank igual} guarantee that $\rank(\ker S) = \rank(\ker T^*)$. Consequentially, $\ind S = -\ind T$.
+
+\item Notice that $\ker VT = \ker T$ since $V$ is invertible, hence $\rank(\ker VT) = \rank(\ker T)$. Analysing $U\sub\restrita{\ker TU}$, one obtains that $\ker TU \simeq \ker T$, thus $\rank(\ker TU) = \rank(\ker T)$. The exact same roll goes for the adjoints. Therefore, the indexes coincide.
+\item  It is the case that $\Omega_{\xi_1 \oplus \xi_2} = \Omega_{\xi_1} \oplus \Omega_{\xi_2}$ for any $\xi_1\oplus \xi_2 \in E_1\oplus E_2$, which is sufficient to infer that $T_1\oplus T_2$ is a Fredholm operator.
+
+Since $\ker(T_1 \oplus T_2) = \ker T_1 \oplus \ker T_2$, $\ker(T_1 \oplus T_2)$ is a finite rank module. If $\rank T_i = [p_i]_0$, it is clear that 
+$$
+\begin{array}{rcl}
+    \rank(\ker(T_1\oplus T_2)) &=& \left[\diag(\sub p1, \sub p2)\right]_0 \\
+    &=& \left[\sub p1\right]_0+ \left[\sub p2\right]_0 \\
+    &=& \rank(\ker T_1) + \rank(\ker T_2).
+\end{array}
+$$
+Therefore, the desired index relation follows.
+\qedhere
+\end{itroman}
+\end{proof}
+\end{proposicao}
+
+Since our compact operators aren't necessarily the same as in Hilbert space case, the index invariance under compact perturbations needs to be handed carefully. 
+
+\begin{proposicao}
+\label{prop: ind(I - K) = 0}
+If $T\in \adj(E)$ is a regular Fredholm operator such that $(\Id - T)\in \mathscr K(E)$, then $\ind T = 0$.
+\begin{proof}
+    Let $S$ be a pseudo-inverse of $T$. Since $\Id - T$ is a compact operator and the compact operators is an ideal, notice that $S$ is a compact perturbation of the identity:
+    \begin{equation*}
+        S = \Id + S(\Id - T) - (\Id - ST)
+    \end{equation*}
+    Considering the isomorphism map $U : \ker T\oplus \Im S \longto \ker S \oplus \Im S$ given by
+    \begin{equation*}
+        U \coloneqq \begin{pmatrix} \Id - TS  & \Id - TS \\ S  & S \end{pmatrix} \hspace{1cm} \inv U = \begin{pmatrix} \Id - ST & (\Id - ST)T \\ ST & STT \end{pmatrix}
+    \end{equation*}
+    with the fact that $\Id - S = \sub\Id{\Im S} - \sub{U}{\Im S\Im S}$ is compact, the modules $\ker T$ and $\ker S$ are quasi-stably-isomorphic. 
+    \begin{equation*}
+        \begin{array}{rcl}
+            \ind T &=& \rank(\ker T) - \rank(\ker T^*) \\
+            &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: propriedades de fredholm}}=& \rank(\ker T) - \rank(\ker S).
+        \end{array}
+    \end{equation*}
+    By \ref{teo: M N quasi stably iso ==> rank igual}, $\rank(\ker T) = \rank(\ker S)$, hence $\ind T = 0$.
+\end{proof}
+\end{proposicao}
+
+\begin{teorema}
+\label{teo: diferenca compacta, indices simetricos}
+If $T_1, T_2 \in \adj(E, F)$ are regular Fredholm operators such that $T_1-T_2$ is compact, then $\ind T_1=\ind T_2$.
+\begin{proof}
+The action plan for the proof will be as follows: Build accessory operators $U$ and $R$ in function of the given maps, such that $U$ is invertible and $\ind R = \ind T_2 - \ind T_1$. Hence, we show that $\ind (UR)$ is a compact perturbation of the identity, so we can use the previous theorem and obtain that $\ind R=\ind(UR)=0$.
+
+Let $\sub S1$ and $\sub S2$ be pseudo inverses for $T_1$ and $T_2$. Define operators $U$ and $R$ in $\adj(E \oplus F)$ by
+\begin{equation*}
+    U\coloneqq \begin{pmatrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{pmatrix} \e R\coloneqq \begin{pmatrix}
+0 & \sub S1 \\
+T_2 & 0
+\end{pmatrix}.
+\end{equation*}
+\begin{itroman}
+\item $\boldsymbol{\ind R = \ind T_2 - \ind T_1}$: Using the coordinate switch operator (which has index zero since it is a invertible one), one obtains that:  
+\begin{equation*}
+\begin{tikzcd}[column sep=0.15cm]
+E\oplus F \arrow[rr, "R"] \arrow[rd, "{(x,y) \mapsto (y,x)}"'] &           & E \oplus F \\
+& F \oplus E \arrow[ru, "\sub S1 \oplus T_2"'] &
+\end{tikzcd}
+\hspace{1cm} 
+\begin{array}{rcl}
+    \ind R &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: invertivel tem ind = 0}}=& \ind(\sub S1 \oplus T_2) \\
+    &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: ind(T (+) F) = ind T + ind F}}=& \ind \sub S1 + \ind T_2 \\
+    &\overset{\ref{prop: propriedades de fredholm}\ref{prop item: propriedades de fredholm}}=& - \ind T_1+ \ind T_2.
+\end{array}
+\end{equation*}
+
+\item \textbf{$\boldsymbol U$ is invertible}: Since $\sub \Id E-\sub S1 T_1$ and $\sub \Id F-T_1 \sub S1$ are idempotents, 
+\begin{eqnarray*}
+    U^2&=&\begin{inlinematrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{inlinematrix}^2 \\
+&=& \begin{inlinematrix}
+(\sub \Id E-\sub S1 T_1)^2+ \sub S1T_1 & (\sub \Id E - \sub S1T_1)\sub S1+\sub S1(\sub \Id F-T_1\sub S1) \\
+T_1(\sub \Id E-\sub S1T_1)+(\sub \Id F-T_1\sub S1)T_1 & T_1\sub S1+ (\sub\Id F-T_1 \sub S1)^2
+\end{inlinematrix}\\
+&=& \begin{inlinematrix}
+\sub \Id E & 0 \\
+0 & \sub\Id F
+\end{inlinematrix} = \sub \Id{E\oplus F}.
+\end{eqnarray*}
+Therefore $U$ is invertible.
+
+\item \textbf{$\boldsymbol{UR}$ is a compact perturbation of identity}: First, we obtain $UR$:
+\begin{equation*}
+    U R=\begin{inlinematrix}
+\sub \Id E-\sub S1 T_1 & \sub S1 \\
+T_1 & \sub\Id F-T_1 \sub S1
+\end{inlinematrix}\begin{inlinematrix}
+0 & \sub S1 \\
+T_2 & 0
+\end{inlinematrix}=\begin{inlinematrix}
+\sub S1 T_2 & 0 \\
+(\sub \Id F-T_1 \sub S1)T_2 & T_1 \sub S1
+\end{inlinematrix}
+\end{equation*}
+Bravely evaluating the difference, we must determine if is compact the following operator:
+\begin{equation*}
+    \sub \Id{E\oplus F} - UR = \begin{inlinematrix}
+\sub\Id{E}-\sub S1 T_2 & 0 \\
+(T_1 \sub S1-\sub\Id F)T_2 & \sub{\Id}F-T_1 \sub S1
+\end{inlinematrix}
+\end{equation*}
+Notice that all operators in the second row are compact since $T_1$ is Fredholm. From the hypothesis, $T_1 -T_2$ is compact, hence:
+\begin{equation*}
+    \begin{array}{rcl}
+        \sub \Id E - \sub S1T_2 &=& \sub \Id E - \sub S1T_1 + \sub S1T_1- \sub S1T_2  \\
+        &=& (\sub \Id E - \sub S1T_1) + \sub S1(T_1-T_2) \in \mathscr K(E).
+    \end{array}
+\end{equation*}
+Since each entry of $\sub \Id{E\oplus F} - UR$ is a compact operator, the claim is proved.
+\end{itroman}
+Using \ref{prop: propriedades de fredholm}\ref{prop item: invertivel tem ind = 0} again, we have that $\ind(U R)=\ind R$. Since $UR$ is a compact perturbation of the identity, it follows that $\ind(U R)=0$ by Proposition \ref{prop: ind(I - K) = 0}.
+\end{proof}
+\end{teorema}
